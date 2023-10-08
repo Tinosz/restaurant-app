@@ -11,23 +11,27 @@
 ## To access User Layouts
 - Go to `react-app/src/context/ContextProvider.jsx`
 - add `username: 'Nama Apa Aja'` to the `const [user, setUser] = useState ({})` like the following:
-`const [user, setUser] = useState({
+```
+const [user, setUser] = useState({
         username: 'John'
-    });`
+    });
+```
 - Set the `const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));` to `const [token, _setToken] = useState(1234);`
 
 ## To Access the Admin Layouts
 - Go to `react-app/src/context/ContextProvider.jsx`
 - add `username: 'Nama Apa Aja'` to the `const [user, setUser] = useState ({})` like the following:
-`const [user, setUser] = useState({
+```
+const [user, setUser] = useState({
         username: 'John'
-    });`
+    });
+```
 - Set the `const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN'));` to `const [adminToken, _setAdminToken] = useState(1234);`
 
 ## To Setup Laravel
 - For first install, go to your cmd and run `global require laravel/installer`
 - Create a `.env` within the laravel folder (paling luar), and copy the `.env.example` to it
-- edit this file based on your laravel configuration <br>
+- edit this file based on your mysql configuration <br>
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
