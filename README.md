@@ -10,10 +10,10 @@
 - Each Layouts need specific keys to access. the following is how to access those layouts
 ## To access User Layouts
 - Go to `react-app/src/context/ContextProvider.jsx`
-- add 'username: 'Nama Apa Aja'' to the const [user, setUser] = useState ({}) like the following:
-const [user, setUser] = useState({
+- add `username: 'Nama Apa Aja'` to the `const [user, setUser] = useState ({})` like the following:
+`const [user, setUser] = useState({
         username: 'John'
-    });
+    });`
 - Set the `const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));` to `const [token, _setToken] = useState(1234);`
 
 ## To Access the Admin Layouts
