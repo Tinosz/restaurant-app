@@ -24,6 +24,18 @@
     });`
 - Set the `const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN'));` to `const [adminToken, _setAdminToken] = useState(1234);`
 
+## To Setup Laravel
+- For first install, go to your cmd and run `global require laravel/installer`
+- Create a `.env` within the laravel folder (paling luar), and copy the `.env.example` to it
+- edit this file based on your laravel configuration <br>
+`DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=restaurant_app
+DB_USERNAME=root
+DB_PASSWORD=`
+- run `php artisan migrate` on the folder
+- run `php artisan serve` to start server
 
 
 
