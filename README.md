@@ -5,6 +5,27 @@
 
 ### `npm run dev`
 
+## To Check Page Layouts
+- Go to `react-app/src/router`
+- Each Layouts need specific keys to access. the following is how to access those layouts
+## To access User Layouts
+- Go to `react-app/src/context/ContextProvider.jsx`
+- add 'username: 'Nama Apa Aja'' to the const [user, setUser] = useState ({}) like the following:
+const [user, setUser] = useState({
+        username: 'John'
+    });
+- Set the const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN')); to const [token, _setToken] = useState(1234);
+
+## To Access the Admin Layouts
+- add 'username: 'Nama Apa Aja'' to the const [user, setUser] = useState ({}) like the following:
+const [user, setUser] = useState({
+        username: 'John'
+    });
+- Set the     const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN')); to     const [adminToken, _setAdminToken] = useState(1234);
+
+
+
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
