@@ -40,7 +40,7 @@ DB_DATABASE=restaurant_app
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-- run `php artisan migrate` on the folder
+- run `php artisan migrate` on the restaurant-app folder (folder yang isinya laravel)
 - run `php artisan serve` to start server
 
 
