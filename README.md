@@ -14,14 +14,15 @@
 const [user, setUser] = useState({
         username: 'John'
     });
-- Set the const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN')); to const [token, _setToken] = useState(1234);
+- Set the `const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));` to `const [token, _setToken] = useState(1234);`
 
 ## To Access the Admin Layouts
-- add 'username: 'Nama Apa Aja'' to the const [user, setUser] = useState ({}) like the following:
-const [user, setUser] = useState({
+- Go to `react-app/src/context/ContextProvider.jsx`
+- add `username: 'Nama Apa Aja'` to the `const [user, setUser] = useState ({})` like the following:
+`const [user, setUser] = useState({
         username: 'John'
-    });
-- Set the     const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN')); to     const [adminToken, _setAdminToken] = useState(1234);
+    });`
+- Set the `const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN'));` to `const [adminToken, _setAdminToken] = useState(1234);`
 
 
 
