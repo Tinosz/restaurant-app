@@ -29,7 +29,7 @@ const [user, setUser] = useState({
 - Set the `const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN'));` to `const [adminToken, _setAdminToken] = useState(1234);`
 
 ## To Setup Laravel
-- For first install, go to your cmd and run `global require laravel/installer`
+- If you haven't Installed Laravel, go to your cmd and run `global require laravel/installer`
 - Create a `.env` within the laravel folder (paling luar), and copy the `.env.example` to it
 - edit this line of code based on your mysql configuration (Create the database first if haven't) <br>
 ```
