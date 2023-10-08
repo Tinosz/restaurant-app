@@ -31,7 +31,7 @@ const [user, setUser] = useState({
 ## To Setup Laravel
 - For first install, go to your cmd and run `global require laravel/installer`
 - Create a `.env` within the laravel folder (paling luar), and copy the `.env.example` to it
-- edit this file based on your mysql configuration (Create the database first if haven't) <br>
+- edit this line of code based on your mysql configuration (Create the database first if haven't) <br>
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
