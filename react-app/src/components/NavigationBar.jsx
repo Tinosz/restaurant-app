@@ -4,41 +4,42 @@ import axiosClient from "../axios-client";
 import adminAxiosClient from "../axios-admin-client";
 
 export default function NavigationBar() {
-    const { user, token, adminToken, setUser, setToken, setAdminToken } = useStateContext();
-    const username = token ? user.username : adminToken ? user.username : 'Visitor';
+    const { user, token, adminToken, setUser, setToken, setAdminToken } =
+        useStateContext();
+    const username = token
+        ? user.username
+        : adminToken
+        ? user.username
+        : "Visitor";
 
     const Logout = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (token) {
-            axiosClient.post('logout')
-            .then(() => {
-                setUser({})
-                setToken(null)
-                window.location.href='/';
-            })
+            axiosClient.post("logout").then(() => {
+                setUser({});
+                setToken(null);
+                localStorage.removeItem("order");
+                window.location.href = "/";
+            });
         } else if (adminToken) {
-            adminAxiosClient.post('logout')
-            .then(() => {
-                setUser({})
-                setAdminToken(null)
-                window.location.href-'/'
-            })
+            adminAxiosClient.post("logout").then(() => {
+                setUser({});
+                setAdminToken(null);
+                localStorage.removeItem("order");
+                window.location.href = "/";
+            });
         }
-    }
-        
+    };
+
     useEffect(() => {
         if (token) {
-            axiosClient.get('/user')
-                .then(({ data }) => {
-                    console.log(data);
-                    setUser(data);
-                });
+            axiosClient.get("/user").then(({ data }) => {
+                setUser(data);
+            });
         } else if (adminToken) {
-            adminAxiosClient.get('/admin/user')
-                .then(({ data }) => {
-                    console.log(data);
-                    setUser(data);
-                });
+            adminAxiosClient.get("/admin/user").then(({ data }) => {
+                setUser(data);
+            });
         }
     }, []);
 
@@ -57,17 +58,16 @@ export default function NavigationBar() {
                     </a>
                 </div>
                 <div className="flex space-x-4">
-                    <div>
-                        {username}
-                    </div>
+                    {token && 
+                    <a href="/Order">Your Orders</a>
+                    }
+                    <div>{username}</div>
                     {token || adminToken ? (
                         <a href="/" onClick={Logout}>
                             Logout
                         </a>
                     ) : (
-                        <a  href="/Login">
-                            Log In
-                        </a>
+                        <a href="/Login">Log In</a>
                     )}
                 </div>
             </div>

@@ -10,11 +10,11 @@ import UserLayout from "./page-groups/UserLayout";
 import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
 import AdminLayout from "./page-groups/AdminLayout";
-import EditMenu from "./pages/EditMenu";
 import AboutUs from "./pages/AboutUs";
 import EditProfile from "./pages/EditProfile";
 import AdminLogin from "./pages/AdminLogin";
 import AccessableLayout from "./page-groups/AccessibleLayout";
+import EditMenuForm from "./pages/EditMenuForm";
 
 const router = createBrowserRouter([
     {
@@ -85,8 +85,12 @@ const router = createBrowserRouter([
         element: <AdminLayout />,
         children: [
             {
-                path: '/EditMenu',
-                element: <EditMenu />
+                path: '/EditMenuForm',
+                element: <EditMenuForm key="userCreate"/>
+            },
+            {
+                path:'/EditMenuForm/:id',
+                element: <EditMenuForm key="userUpdate" />
             }
         ]
     }

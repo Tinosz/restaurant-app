@@ -28,8 +28,10 @@ const [user, setUser] = useState({
 ```
 - Set the `const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_ACCESS_TOKEN'));` to `const [adminToken, _setAdminToken] = useState(1234);`
 
-## To Setup Laravel
+
+## To Setup Laravel and Back end
 - If you haven't Installed Laravel, go to your cmd and run `global require laravel/installer`
+- run `composer install` on the root laravel folder
 - Create a `.env` within the laravel folder (paling luar), and copy the `.env.example` to it
 - edit this line of code based on your mysql configuration (Create the database first if haven't) <br>
 ```
@@ -42,7 +44,7 @@ DB_PASSWORD=
 ```
 - run `php artisan migrate` on the restaurant-app folder (folder yang isinya laravel)
 - run `php artisan serve` to start server
-
+- Do the same for the react-app by copying the `.env.example` and make a `.env` within the react-app folder
 
 
 

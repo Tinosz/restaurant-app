@@ -15,8 +15,6 @@ export default function SignUp () {
     const [errors, setError] = useState(null);
     const navigate = useNavigate();
 
-    const {setUser, setToken} = useStateContext();
-
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -46,8 +44,6 @@ export default function SignUp () {
                     setError(response.data.errors);
                 }
             })
-
-
     } 
     return (
         <>

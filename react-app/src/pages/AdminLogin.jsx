@@ -19,7 +19,7 @@ export default function AdminLogin () {
         setErrors(null)
         adminAxiosClient.post('adminlogin', payload)
         .then(({data}) => {
-            setUser(data.admin.username)
+            setUser(data.admin)
             setAdminToken(data.token)
         })
         .catch(err => {

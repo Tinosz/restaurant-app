@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SignupRequest extends FormRequest
+class UpdateFoodRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +21,17 @@ class SignupRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'username' => 'required|string|max:36|unique:users,username',
-            'email' => 'required|email|unique:users,email',
-            'gender' => 'required|in:Male,Female',
-            'date_of_birth' => 'required|date_format:Y-m-d',
-            'password' => ['required', 'confirmed', 'string', 'min:8'],
+        $rules = [
+            'food_name' => 'required|string|max:255',
+            'food_type' => 'required|string|in:Food,Drink',
+            'description' => 'required|string|max:280',
+            'cost' => 'required|numeric',
         ];
+    
+        if ($this->hasFile('food_image')) {
+            $rules['food_image'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+        }
+    
+        return $rules;
     }
 }
