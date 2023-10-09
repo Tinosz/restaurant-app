@@ -7,7 +7,6 @@ export default function Order() {
     const navigate = useNavigate();
     const [totalCost, setTotalCost] = useState(0);
 
-    
     useEffect(() => {
         getFoods();
     }, []);
@@ -15,6 +14,27 @@ export default function Order() {
     useEffect(() => {
         calculateTotalCost(); // Calculate total cost initially
     }, [foods]);
+
+    const getFoods = () => {
+        userAxiosClient.get("/foods")
+            .then((response) => {
+                console.log(response.data);
+                setFoods(response.data);
+            })
+            .catch(() => {
+                // set Loading False here
+            });
+    };
+
+    const orderProcess = (e) => {
+        e.preventDefault();
+
+        //process order to database;
+
+        //go somewhere after order
+        window.location.href = "/";
+        localStorage.removeItem("order");
+    };
 
     const removeFromPlate = (food) => {
         const order = JSON.parse(localStorage.getItem("order")) || {};
@@ -46,18 +66,6 @@ export default function Order() {
         calculateTotalCost();
     };
 
-
-    const getFoods = () => {
-        userAxiosClient.get("/foods")
-            .then((response) => {
-                console.log(response.data);
-                setFoods(response.data);
-            })
-            .catch(() => {
-                // set Loading False here
-            });
-    };
-
     const calculateTotalCost = () => {
         const order = JSON.parse(localStorage.getItem("order")) || {};
         let total = 0;
@@ -76,38 +84,55 @@ export default function Order() {
 
     const formattedCost = (cost) => {
         const parsedCost = parseInt(cost);
-    
+
         if (isNaN(parsedCost)) {
-            return 'Rp. N/A';
+            return "Rp. N/A";
         }
         const costString = parsedCost.toLocaleString("id-ID");
         return `Rp. ${costString}`;
     };
-
+    //Orders can only be seen when Foods are added from the menu
+    //if not, the text saying that there is no order
     return (
         <div>
-        {foods
-            .filter((food) => {
-                const orderId = JSON.parse(localStorage.getItem("order"));
-                return orderId && orderId[food.id] > 0;
-            })
-            .map((food) => (
-                <div key={food.id}>
-                    <p>{food.food_name}</p>
-                    <p>{formattedCost(food.cost)}</p>
-                    <button onClick={() => removeFromPlate(food)}>-</button>
-                    <span>
-                        {
-                            JSON.parse(
+            {localStorage.getItem("order") &&
+            Object.keys(JSON.parse(localStorage.getItem("order"))).length >
+                0 ? (
+                <div>
+                    {foods
+                        .filter((food) => {
+                            const orderId = JSON.parse(
                                 localStorage.getItem("order")
-                            )[food.id]
-                        }
-                    </span>
-                    <button onClick={() => addToPlate(food)}>+</button>
+                            );
+                            return orderId && orderId[food.id] > 0;
+                        })
+                        .map((food) => (
+                            <div key={food.id}>
+                                <p>{food.food_name}</p>
+                                <p>{formattedCost(food.cost)}</p>
+                                <button onClick={() => removeFromPlate(food)}>
+                                    -
+                                </button>
+                                <span>
+                                    {
+                                        JSON.parse(
+                                            localStorage.getItem("order")
+                                        )[food.id]
+                                    }
+                                </span>
+                                <button onClick={() => addToPlate(food)}>
+                                    +
+                                </button>
+                            </div>
+                        ))}
+                    <p>Total Cost: {formattedCost(totalCost)}</p>
+                    <a href="/" onClick={orderProcess}>
+                        Order Now
+                    </a>
                 </div>
-            ))}
-            <p>Total Cost: {formattedCost(totalCost)}</p>
-            <a href="/">Order Now</a>
-    </div>
+            ) : (
+                <p>Currently, there is no order.</p>
+            )}
+        </div>
     );
 }

@@ -110,7 +110,7 @@ export default function SignUp () {
             </div>
             <div>
                 <label>
-                    Password
+                    Password (Min. 8 Characters)
                 </label>
                 {errors && errors.password && (
                     <p className="text-red-600">{errors.password[0]}</p>

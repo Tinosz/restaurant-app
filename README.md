@@ -43,6 +43,8 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 - run `php artisan migrate` on the restaurant-app folder (folder yang isinya laravel)
+- run `php artisan db:seed`
+- run `php artisan storage:link` to make image uploaded public
 - run `php artisan serve` to start server
 - Do the same for the react-app by copying the `.env.example` and make a `.env` within the react-app folder
 
