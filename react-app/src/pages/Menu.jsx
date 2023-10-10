@@ -85,7 +85,7 @@ export default function Menu() {
         <div>
             {adminToken && (
                 <p>
-                    <a href="/EditMenuForm">Add Food or Drink</a>
+                    <a href="/EditMenuForm">Add Menu Item</a>
                 </p>
             )}
             {foods.map((food) => (

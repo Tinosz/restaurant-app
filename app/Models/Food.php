@@ -15,6 +15,7 @@ class Food extends Model
         'food_name',
         'food_image',
         'food_type',
+        'food_category',
         'description',
         'cost',
     ];

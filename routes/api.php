@@ -22,8 +22,8 @@ Route::middleware('auth:sanctum')->group(function() {
 });
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/admin/user', [AuthController::class, 'getAdminUserData']);
+    Route::apiResource('/foods', FoodController::class);
 });
-Route::apiResource('/foods', FoodController::class);
 Route::get('/foods', [FoodController::class, 'index']);
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);

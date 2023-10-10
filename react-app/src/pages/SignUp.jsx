@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignUp () {
     const usernameRef = useRef();
+    const firstNameRef = useRef();
+    const lastNameRef = useRef();
     const emailRef = useRef();
     const maleGenderRef = useRef();
     const femaleGenderRef = useRef();
@@ -27,6 +29,8 @@ export default function SignUp () {
 
         const payload = {
             username: usernameRef.current.value,
+            first_name: firstNameRef.current.value,
+            last_name: lastNameRef.current.value,
             email: emailRef.current.value,
             gender: selectedGender,
             date_of_birth: dateOfBirthRef.current.value,
@@ -58,6 +62,28 @@ export default function SignUp () {
                 )}
                 <div>
                     <input ref={usernameRef} placeholder="Username"/>
+                </div>
+            </div>
+            <div>
+            <label>
+                    First Name:
+                </label>
+                {errors && errors.first_name && (
+                    <p className="text-red-600">{errors.first_name[0]}</p>
+                )}
+                <div>
+                    <input ref={firstNameRef} placeholder="Your First Name"/>
+                </div>
+            </div>
+            <div>
+            <label>
+                    Last Name:
+                </label>
+                {errors && errors.last_name && (
+                    <p className="text-red-600">{errors.last_name[0]}</p>
+                )}
+                <div>
+                    <input ref={lastNameRef} placeholder="Your Last Name"/>
                 </div>
             </div>
             <div>

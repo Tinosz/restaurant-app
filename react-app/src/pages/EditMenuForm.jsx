@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import adminAxiosClient from "../axios-admin-client";
 import { useEffect, useState } from "react";
-import userAxiosClient from "../axios-user-client";
 
 export default function EditMenuForm() {
     const { id } = useParams();
@@ -11,6 +10,7 @@ export default function EditMenuForm() {
         id: null,
         food_name: "",
         food_type: "",
+        food_category: "",
         food_image: null,
         description: "",
         cost: "",
@@ -22,6 +22,7 @@ export default function EditMenuForm() {
                 .get(`/foods/${id}`)
                 .then(({ data }) => {
                     setFood(data);
+                    console.log(data)
                 })
                 .catch(() => {});
         }, []);
@@ -34,6 +35,7 @@ export default function EditMenuForm() {
         formData.append("id", food.id);
         formData.append("food_name", food.food_name);
         formData.append("food_type", food.food_type);
+        formData.append("food_category", food.food_category);
         formData.append("description", food.description);
         formData.append("cost", food.cost);
         formData.append("food_image", food.food_image);
@@ -46,7 +48,8 @@ export default function EditMenuForm() {
 
         if (id) {
             console.log(formData);
-            adminAxiosClient.post(`/foods/${food.id}`, formData, {
+            adminAxiosClient
+                .post(`/foods/${food.id}`, formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -62,7 +65,8 @@ export default function EditMenuForm() {
                     }
                 });
         } else {
-            adminAxiosClient.post("/foods", formData, {
+            adminAxiosClient
+                .post("/foods", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -84,6 +88,11 @@ export default function EditMenuForm() {
         setFood({ ...food, food_type: e.target.value });
     };
 
+    const handleFoodCategoryChange = (e) => {
+        const selectedFoodCategory = e.target.value;
+        setFood({ ...food, food_category: selectedFoodCategory });
+    };
+
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setFood({ ...food, food_image: selectedFile });
@@ -96,7 +105,7 @@ export default function EditMenuForm() {
             };
             reader.readAsDataURL(selectedFile);
         }
-    };
+    }
 
     return (
         <div>
@@ -166,6 +175,42 @@ export default function EditMenuForm() {
                                 onChange={handleFoodTypeChange}
                             />
                         </label>
+                    </div>
+                </div>
+                <div>
+                {errors && errors.food_category && (
+                        <p className="text-red-600">{errors.food_category[0]}</p>
+                    )}
+                    <label>Food Category</label>
+                    <div>
+                        {food.food_type === "" && (
+                            <select disabled className="opacity-40 bg-slate-300">
+                                <option>Category</option>
+                            </select>
+                        )}
+                        {food.food_type === "Food" && (
+                            <select
+                                name="food_category"
+                                value={food.food_category}
+                                onChange={handleFoodCategoryChange}
+                            >
+                                <option value="">Category</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                            </select>
+                        )}
+                        {food.food_type === "Drink" && (
+                            <select
+                                name="food_category"
+                                value={food.food_category}
+                                onChange={handleFoodCategoryChange}
+                            >
+                                <option value=" ">Category</option>
+                                <option value="juice">Juice</option>
+                                <option value="soda">Soda</option>
+                            </select>
+                        )}
                     </div>
                 </div>
                 <div>

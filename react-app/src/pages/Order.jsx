@@ -12,7 +12,7 @@ export default function Order() {
     }, []);
 
     useEffect(() => {
-        calculateTotalCost(); // Calculate total cost initially
+        calculateTotalCost();
     }, [foods]);
 
     const getFoods = () => {
@@ -29,7 +29,7 @@ export default function Order() {
     const orderProcess = (e) => {
         e.preventDefault();
 
-        //process order to database;
+        //process order to database if you want;
 
         //go somewhere after order
         window.location.href = "/";

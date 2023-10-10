@@ -20,6 +20,7 @@ class FoodResource extends JsonResource
             'food_name' => $this->food_name,
             'food_image' => $this->food_image,
             'food_type' => $this->food_type,
+            'food_category' => $this->food_category,
             'description' => $this->description,
             'cost' => $this->cost
         ];

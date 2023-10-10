@@ -25,6 +25,7 @@ class StoreFoodRequest extends FormRequest
             'food_name' => 'required|string|max:255',
             'food_image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048', 
             'food_type' => 'required|string|in:Food,Drink',
+            'food_category' => 'required|string',
             'description' => 'required|string|max:280',
             'cost' => 'required|numeric',
         ];
