@@ -76,6 +76,8 @@ class AuthController extends Controller
         /** @var \App\Models\User $user  */
         $user = User::create([
             'username' => $data['username'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'gender' => $data['gender'],
             'date_of_birth' => $data['date_of_birth'],
