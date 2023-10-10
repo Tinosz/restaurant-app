@@ -1,9 +1,7 @@
 ## To access react app
-### `cd react-app`
-
-### `npm install`
-
-### `npm run dev`
+-`cd react-app` 
+- `npm install`
+- `npm run dev`
 
 ## To Check Page Layouts
 - Go to `react-app/src/router`
@@ -30,7 +28,8 @@ const [user, setUser] = useState({
 
 
 ## To Setup Laravel and Back end
-- If you haven't Installed Laravel, go to your cmd and run `global require laravel/installer`
+- Make sure you have php and composer installed
+- If you haven't Installed Laravel, go to your cmd and run `composer global require laravel/installer`
 - run `composer install` on the root laravel folder
 - Create a `.env` within the laravel folder (paling luar), and copy the `.env.example` to it
 - edit this line of code based on your mysql configuration (Create the database first if haven't) <br>
