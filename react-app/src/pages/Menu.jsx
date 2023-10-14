@@ -8,6 +8,7 @@ export default function Menu() {
     const [foods, setFoods] = useState([]);
     const navigate = useNavigate();
 
+    //functions
     useEffect(() => {
         getFoods();
     }, []);
@@ -37,7 +38,6 @@ export default function Menu() {
     };
 
     const handleImageError = (food) => {
-
         setFoods((prevFoods) =>
             prevFoods.map((f) =>
                 f.id === food.id ? { ...f, imageError: true } : f
@@ -89,70 +89,114 @@ export default function Menu() {
         getFoods();
     };
 
+    const organizedFoods = {
+        Food: {
+            appetizer: [],
+            fish: [],
+            steak: [],
+            soup: [],
+            salad: [],
+            dessert: [],
+        },
+        Drink: {
+            tea: [],
+            coffee: [],
+            juice: [],
+            mocktail: [],
+            alcohol: [],
+        },
+    };
+
+    foods.forEach((food) => {
+        const { food_type, food_category } = food;
+        if (organizedFoods[food_type] && organizedFoods[food_type][food_category]) {
+            organizedFoods[food_type][food_category].push(food);
+        }
+    });
+
     return (
-        <div>
+        <div className="container mx-auto lg:w-2/5 md:w-1/2 sm:w-full">
             {adminToken && (
                 <p>
                     <a href="/EditMenuForm">Add Menu Item</a>
                 </p>
             )}
-            {foods.map((food) => (
-                <div key={food.id}>
-                    <p>{food.food_name}</p>
-                    <p>{food.description}</p>
-                    <img
-                        src={
-                            food.imageError
-                                ? food.food_image
-                                : `${
-                                    import.meta.env.VITE_API_BASE_URL
-                                }/storage/${food.food_image}`
-                        }
-                        alt={food.food_name}
-                        onError={() => handleImageError(food)}
-                    />
-                    <p>{formattedCost(food.cost)}</p>
-                    {adminToken ? (
-                        <div>
-                            <Link
-                                to={"/EditMenuForm/" + food.id}
-                                className="mr-3"
-                            >
-                                Edit
-                            </Link>
-                            <button onClick={(e) => onDelete(food)}>
-                                Delete
-                            </button>
-                        </div>
-                    ) : (
-                        <div>
-                            {localStorage.getItem("order") &&
-                            JSON.parse(localStorage.getItem("order"))[
-                                food.id
-                            ] ? (
-                                <div>
-                                    <button
-                                        onClick={() => removeFromPlate(food)}
-                                    >
-                                        -
-                                    </button>
-                                    <span>
-                                        {
-                                            JSON.parse(
-                                                localStorage.getItem("order")
-                                            )[food.id]
-                                        }
-                                    </span>
-                                    <button onClick={() => addToPlate(food)}>
-                                        +
-                                    </button>
+            {Object.entries(organizedFoods).map(([foodType, categories]) => (
+                <div key={foodType}>
+                    {Object.values(categories).some(category => category.length > 0) && (
+                        <>
+                            <h2>{foodType}:</h2>
+                            {Object.entries(categories).map(([category, items]) => (
+                                <div key={category}>
+                                    {items.length > 0 && (
+                                        <div>
+                                            <h3>{category}:</h3>
+                                            {items.map((food) => (
+                                                <div key={food.id}>
+                                                    <div className="flex justify-between">
+                                                        <div className="flex flex-col">
+                                                            <p>{food.food_name}</p>
+                                                            <p>{formattedCost(food.cost)}</p>
+                                                        </div>
+                                                        <div className="flex items-center">
+                                                            {adminToken ? (
+                                                                <div>
+                                                                    <Link
+                                                                        to={"/EditMenuForm/" + food.id}
+                                                                        className="mr-3"
+                                                                    >
+                                                                        Edit
+                                                                    </Link>
+                                                                    <button onClick={(e) => onDelete(food)}>
+                                                                        Delete
+                                                                    </button>
+                                                                </div>
+                                                            ) : (
+                                                                <div>
+                                                                    {localStorage.getItem("order") &&
+                                                                    JSON.parse(localStorage.getItem("order"))[food.id] ? (
+                                                                        <div>
+                                                                            <button
+                                                                                onClick={() => removeFromPlate(food)}
+                                                                            >
+                                                                                -
+                                                                            </button>
+                                                                            <span>
+                                                                                {
+                                                                                    JSON.parse(localStorage.getItem("order"))[food.id]
+                                                                                }
+                                                                            </span>
+                                                                            <button onClick={() => addToPlate(food)}>
+                                                                                +
+                                                                            </button>
+                                                                        </div>
+                                                                    ) : (
+                                                                        <button onClick={() => addToPlate(food)}>
+                                                                            Add to Plate
+                                                                        </button>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                    <img
+                                                        src={`${import.meta.env.VITE_API_BASE_URL}/storage/${food.food_image}`}
+                                                        alt={food.food_name}
+                                                        onError={(e) => {
+                                                            try {
+                                                                e.preventDefault();
+                                                            } catch (error) {}
+                                                            handleImageError(food);
+                                                        }}
+                                                    />
+                                                    <p>{food.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                            ) : (
-                                <button onClick={() => addToPlate(food)}>
-                                    Add to Plate
-                                </button>
-                            )}
-                        </div>
+                            ))}
+                        </>
                     )}
                 </div>
             ))}

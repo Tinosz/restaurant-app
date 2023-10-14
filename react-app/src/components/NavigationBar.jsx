@@ -47,7 +47,7 @@ export default function NavigationBar() {
         <nav className="bg-blue-500 p-4">
             <div className="flex justify-between">
                 <div>
-                    <a href="/">Insert Logo Here</a>
+                    <a href="/">Elegante</a>
                 </div>
                 <div className="space-x-4">
                     <a href="/Menu" className="text-white">
@@ -61,7 +61,7 @@ export default function NavigationBar() {
                     {token && 
                     <a href="/Order">Your Orders</a>
                     }
-                    <div>{username}</div>
+                    <div>Hello {username}!</div>
                     {token || adminToken ? (
                         <a href="/" onClick={Logout}>
                             Logout

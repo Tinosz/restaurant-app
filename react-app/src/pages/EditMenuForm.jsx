@@ -210,11 +210,11 @@ export default function EditMenuForm() {
                                 onChange={handleFoodCategoryChange}
                             >
                                 <option value=" ">Category</option>
-                                <option value="coffee">Coffee</option>
                                 <option value="tea">Tea</option>
+                                <option value="coffee">Coffee</option>
+                                <option value="juice">Juice</option>
                                 <option value="mocktail">Mocktail</option>
                                 <option value="alcohol">Alcohol</option>
-                                <option value="juice">Juice</option>
                             </select>
                         )}
                     </div>
