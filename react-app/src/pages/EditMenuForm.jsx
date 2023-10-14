@@ -85,7 +85,7 @@ export default function EditMenuForm() {
     };
 
     const handleFoodTypeChange = (e) => {
-        setFood({ ...food, food_type: e.target.value });
+        setFood({ ...food, food_type: e.target.value, food_category: ""});
     };
 
     const handleFoodCategoryChange = (e) => {
@@ -195,9 +195,12 @@ export default function EditMenuForm() {
                                 onChange={handleFoodCategoryChange}
                             >
                                 <option value="">Category</option>
-                                <option value="breakfast">Breakfast</option>
-                                <option value="lunch">Lunch</option>
-                                <option value="dinner">Dinner</option>
+                                <option value="appetizer">Appetizer</option>
+                                <option value="fish">Fish</option>
+                                <option value="steak">Steak</option>
+                                <option value="soup">Soup</option>
+                                <option value="salad">Salad</option>
+                                <option value="dessert">Dessert</option>
                             </select>
                         )}
                         {food.food_type === "Drink" && (
@@ -207,8 +210,11 @@ export default function EditMenuForm() {
                                 onChange={handleFoodCategoryChange}
                             >
                                 <option value=" ">Category</option>
+                                <option value="coffee">Coffee</option>
+                                <option value="tea">Tea</option>
+                                <option value="mocktail">Mocktail</option>
+                                <option value="alcohol">Alcohol</option>
                                 <option value="juice">Juice</option>
-                                <option value="soda">Soda</option>
                             </select>
                         )}
                     </div>

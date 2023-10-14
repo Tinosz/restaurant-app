@@ -25,7 +25,8 @@ export default function Menu() {
     };
 
     const getFoods = () => {
-        userAxiosClient.get("/foods")
+        userAxiosClient
+            .get("/foods")
             .then((response) => {
                 console.log(response.data);
                 setFoods(response.data);
@@ -35,18 +36,25 @@ export default function Menu() {
             });
     };
 
+    const handleImageError = (food) => {
+
+        setFoods((prevFoods) =>
+            prevFoods.map((f) =>
+                f.id === food.id ? { ...f, imageError: true } : f
+            )
+        );
+    };
+
+
     const formattedCost = (cost) => {
         const parsedCost = parseInt(cost);
-    
+
         if (isNaN(parsedCost)) {
-            return 'Rp. N/A';
+            return "Rp. N/A";
         }
         const costString = parsedCost.toLocaleString("id-ID");
         return `Rp. ${costString}`;
     };
-    
-    
-    
 
     const addToPlate = (food) => {
         if (!token) {
@@ -93,10 +101,15 @@ export default function Menu() {
                     <p>{food.food_name}</p>
                     <p>{food.description}</p>
                     <img
-                        src={`${import.meta.env.VITE_API_BASE_URL}/storage/${
-                            food.food_image
-                        }`}
+                        src={
+                            food.imageError
+                                ? food.food_image
+                                : `${
+                                    import.meta.env.VITE_API_BASE_URL
+                                }/storage/${food.food_image}`
+                        }
                         alt={food.food_name}
+                        onError={() => handleImageError(food)}
                     />
                     <p>{formattedCost(food.cost)}</p>
                     {adminToken ? (
