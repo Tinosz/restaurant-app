@@ -2,8 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import GuestLayout from "./page-groups/GuestLayout";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
-import Food from "./pages/Food";
-import Drinks from "./pages/Drinks";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import UserLayout from "./page-groups/UserLayout";
