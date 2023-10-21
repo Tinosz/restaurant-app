@@ -5,7 +5,7 @@ import axiosClient from "../axios-client";
 export default function Login() {
   const loginRef = useRef();
   const passwordRef = useRef();
-  const [isVisible, setIsVisible] = useState(false); // Tambahkan state untuk mengendalikan animasi
+  const [isVisible, setIsVisible] = useState(false);
 
   const [errors, setErrors] = useState(null);
 
@@ -37,9 +37,8 @@ export default function Login() {
           }
         }
       });
-  };
+  }
 
-  // Setelah komponen dimuat, atur state isVisible ke true untuk memicu animasi fade-in
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -49,7 +48,8 @@ export default function Login() {
       <div
         style={{
           ...styles.loginBox,
-          animation: isVisible ? "fadeInUp 1s" : "", // Animasi hanya akan berjalan jika isVisible adalah true
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
         }}
       >
         <h1 style={styles.title}>Sign in to your account</h1><br></br>
@@ -116,6 +116,7 @@ const styles = {
     width: "400px",
     backgroundColor: "#5E1219",
     textAlign: "left",
+    transition: "opacity 1s, transform 1s",
   },
   title: {
     color: "#fff",
@@ -171,6 +172,18 @@ const styles = {
   hoverLink: {
     cursor: "pointer",
   },
+};
 
-  
+// Definisi keyframes di luar objek styles
+const keyframes = {
+  '@keyframes fadeInUp': {
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0, -20%, 0)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translate3d(0, 0, 0)',
+    },
+  },
 };
