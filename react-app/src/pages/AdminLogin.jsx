@@ -49,33 +49,33 @@ export default function AdminLogin() {
           transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
         }}
       >
-        <h1 style={styles.title}>Sign in to the Admin Account</h1><br></br>
+        <h1 style={{...styles.title, fontFamily: 'Lora'}}>Sign in to the Admin Account</h1><br></br>
         <form onSubmit={onSubmit}>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Admin Username:</label>
+            <label style={{...styles.label, fontFamily: 'Karla'}}>Admin Username:</label>
             {errors && errors.username && (
-              <p className="text-red-600">{errors.username[0]}</p>
+              <p className="text-red-600" style={{fontFamily: 'Karla'}}>{errors.username[0]}</p>
             )}
             <div>
               <input
                 ref={usernameRef}
                 placeholder="Enter the Admin Username"
-                style={styles.input}
+                style={{...styles.input, fontFamily: 'Karla'}}
               />
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Password:</label>
+            <label style={{...styles.label, fontFamily: 'Karla'}}>Password:</label>
             <div>
               <input
                 ref={passwordRef}
                 type="password"
                 placeholder="Enter the Password"
-                style={styles.input}
+                style={{...styles.input, fontFamily: 'Karla'}}
               />
             </div>
           </div>
-          <button style={styles.button}>Sign In</button>
+          <button style={{...styles.button, fontFamily: 'Karla'}}>Sign In</button>
 
           <div style={styles.orLine}>
             <div style={styles.orCircle}></div>
@@ -83,9 +83,9 @@ export default function AdminLogin() {
             <div style={styles.orCircle}></div>
           </div>
           <div style={styles.centeredText}>
-            <p style={styles.text}>
+            <p style={{...styles.text, fontFamily: 'Karla'}}>
               Are you a User?{" "}
-              <a style={styles.link} href="/Login">
+              <a style={{...styles.link, fontFamily: 'Karla'}} href="/Login">
                 Log In here.
               </a>
             </p>
@@ -116,7 +116,7 @@ const styles = {
     transition: "opacity 1s, transform 1s",
   },
   title: {
-    color: "#fff",
+    color: "#FBEC52",
   },
   label: {
     color: "#fff",

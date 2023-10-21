@@ -48,13 +48,13 @@ export default function Login() {
       <div
         style={{
           ...styles.loginBox,
+          animation: "fadeInUp 1s",
           opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
         }}
       >
-        <h1 style={styles.title}>Sign in to your account</h1><br></br>
+        <h1 style={{ ...styles.title, fontFamily: 'Lora' }}>Sign in to your account</h1><br></br>
         <form onSubmit={onSubmit}>
-          <div style={styles.inputGroup}>
+          <div style={{ ...styles.inputGroup, fontFamily: 'Karla' }}>
             <label style={styles.label}>Email/Username:</label>
             {errors && errors.login && (
               <p className="text-red-600">{errors.login[0]}</p>
@@ -67,7 +67,7 @@ export default function Login() {
               />
             </div>
           </div>
-          <div style={styles.inputGroup}>
+          <div style={{ ...styles.inputGroup,fontFamily: 'Karla' }}>
             <label style={styles.label}>Password</label>
             {errors && errors.password && (
               <p className="text-red-600">{errors.password[0]}</p>
@@ -84,16 +84,16 @@ export default function Login() {
           <button style={{ ...styles.button, ...styles.hoverButton }}>Sign In</button>
           <div style={styles.orLine}>
             <div style={styles.orCircle}></div>
-            <div style={styles.orText}>OR</div>
+            <div style={{...styles.orText, fontFamily: 'Karla' }}>OR</div>
             <div style={styles.orCircle}></div>
           </div>
           <div style={styles.centeredText}>
-            <p style={styles.text}>
-              Don't have an account? <a href="/SignUp" style={{ ...styles.link, ...styles.hoverLink }}>Sign Up here.</a>
-            </p>
-            <p style={styles.text}>
-              Are you an Admin? <a href="/AdminLogin" style={{ ...styles.link, ...styles.hoverLink }}>Log In here.</a>
-            </p>
+          <p style={{ ...styles.text, fontFamily: 'Karla' }}>
+            Don't have an account? <a href="/SignUp" style={{ ...styles.link, ...styles.hoverLink }}>Sign Up here.</a>
+          </p>
+          <p style={{ ...styles.text, fontFamily: 'Karla' }}>
+            Are you an Admin? <a href="/AdminLogin" style={{ ...styles.link, ...styles.hoverLink }}>Log In here.</a>
+          </p>
           </div>
         </form>
       </div>
@@ -116,10 +116,9 @@ const styles = {
     width: "400px",
     backgroundColor: "#5E1219",
     textAlign: "left",
-    transition: "opacity 1s, transform 1s",
   },
   title: {
-    color: "#fff",
+    color: "#FBEC52",
   },
   label: {
     color: "#fff",

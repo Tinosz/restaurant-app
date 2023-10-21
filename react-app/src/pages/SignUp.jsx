@@ -57,95 +57,102 @@ export default function SignUp() {
 
   return (
     <div style={styles.pageContainer}>
-      <div style={styles.centeredText}>
-        <form style={styles.signUpForm} onSubmit={onSubmit}>
-          <h1 style={styles.title}>Create your Account!</h1><br></br>
+      <div style={{ ...styles.centeredText, fontFamily: 'Karla' }}>
+        <form style={{ ...styles.signUpForm, animation: 'fadeInUp 1s' }} onSubmit={onSubmit}>
+          <h1 style={{ ...styles.title, fontFamily: 'Lora' }}>Create your Account!</h1><br></br>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Username:</label>
+            <label style={{ ...styles.label, fontFamily: 'Karla' }}>Username:</label>
             {errors && errors.username && (
-              <p className="text-red-600">{errors.username[0]}</p>
+              <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.username[0]}</p>
             )}
             <div>
-              <input ref={usernameRef} placeholder="Username" style={styles.input} />
+              <input ref={usernameRef} placeholder="Username" style={{ ...styles.input, fontFamily: 'Karla' }} />
             </div>
           </div>
           <div style={styles.inputGroup}>
             <div style={styles.nameGroup}>
               <div style={styles.nameInput}>
-                <label style={styles.label}>First Name:</label>
+                <label style={{ ...styles.label, fontFamily: 'Karla' }}>First Name:</label>
                 {errors && errors.first_name && (
-                  <p className="text-red-600">{errors.first_name[0]}</p>
+                  <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.first_name[0]}</p>
                 )}
-                <input ref={firstNameRef} placeholder="Your First Name" style={styles.input} />
+                <input ref={firstNameRef} placeholder="Your First Name" style={{ ...styles.input, fontFamily: 'Karla' }} />
               </div>
               <div style={styles.nameInput}>
-                <label style={styles.label}>Last Name:</label>
+                <label style={{ ...styles.label, fontFamily: 'Karla' }}>Last Name:</label>
                 {errors && errors.last_name && (
-                  <p className="text-red-600">{errors.last_name[0]}</p>
+                  <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.last_name[0]}</p>
                 )}
-                <input ref={lastNameRef} placeholder="Your Last Name" style={styles.input} />
+                <input ref={lastNameRef} placeholder="Your Last Name" style={{ ...styles.input, fontFamily: 'Karla' }} />
               </div>
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Email:</label>
+            <label style={{ ...styles.label, fontFamily: 'Karla' }}>Email:</label>
             {errors && errors.email && (
-              <p className="text-red-600">{errors.email[0]}</p>
+              <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.email[0]}</p>
             )}
             <div>
-              <input ref={emailRef} placeholder="Email" style={styles.input} />
+              <input ref={emailRef} placeholder="Email" style={{ ...styles.input, fontFamily: 'Karla' }} />
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Gender:</label>
+            <label style={{ ...styles.label, fontFamily: 'Karla' }}>Gender:</label>
             {errors && errors.gender && (
-              <p className="text-red-600">{errors.gender[0]}</p>
+              <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.gender[0]}</p>
             )}
             <div style={styles.radioGroup}>
               <div style={styles.radioOption}>
                 <input type="radio" name="gender" value="Male" ref={maleGenderRef} />
-                <label style={styles.radioLabel}>Male</label>
+                <label style={{ ...styles.radioLabel, fontFamily: 'Karla' }}>Male</label>
               </div>
               <div style={styles.radioOption}>
-                <input type="radio" name="gender" value="Female" ref={femaleGenderRef} />
-                <label style={styles.radioLabel}>Female</label>
+                <input type= "radio" name="gender" value="Female" ref={femaleGenderRef} />
+                <label style={{ ...styles.radioLabel, fontFamily: 'Karla' }}>Female</label>
               </div>
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Date of Birth:</label>
+            <label style={{ ...styles.label, fontFamily: 'Karla' }}>Date of Birth:</label>
             {errors && errors.date_of_birth && (
-              <p className="text-red-600">{errors.date_of_birth[0]}</p>
+              <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.date_of_birth[0]}</p>
             )}
             <div>
-              <input ref={dateOfBirthRef} type="date" style={styles.input} />
+              <input ref={dateOfBirthRef} type="date" style={{ ...styles.input, fontFamily: 'Karla' }} />
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Password (Min. 8 Characters):</label>
+            <label style={{ ...styles.label, fontFamily: 'Karla' }}>Password (Min. 8 Characters):</label>
             {errors && errors.password && (
-              <p className="text-red-600">{errors.password[0]}</p>
+              <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.password[0]}</p>
             )}
             <div>
-              <input ref={passwordRef} type="password" placeholder="Enter your Password" style={styles.input} />
+              <input ref={passwordRef} type="password" placeholder="Enter your Password" style={{ ...styles.input, fontFamily: 'Karla' }} />
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Password Confirmation:</label>
+            <label style={{ ...styles.label, fontFamily: 'Karla' }}>Password Confirmation:</label>
             {errors && errors.password_confirmation && (
-              <p className="text-red-600">{errors.password_confirmation[0]}</p>
+              <p className="text-red-600" style={{ ...styles.karlaText, fontFamily: 'Karla' }}>{errors.password_confirmation[0]}</p>
             )}
             <div>
-              <input ref={passwordConfirmationRef} type="password" placeholder="Re-enter your password" style={styles.input} />
+              <input ref={passwordConfirmationRef} type="password" placeholder="Re-enter your password" style={{ ...styles.input, fontFamily: 'Karla' }} />
             </div>
           </div>
-          <button style={styles.button}>Sign Up</button>
-          <p style={styles.text}>
-            Have an Account?{" "}
-            <a style={styles.link} href="/Login">
-              Login Here.
-            </a>
-          </p>
+          <button style={{ ...styles.button, fontFamily: 'Karla' }}>Sign Up</button>
+          <div style={styles.orLine}>
+            <div style={styles.orCircle}></div>
+            <div style={{ ...styles.orText, fontFamily: 'Karla' }}>OR</div>
+            <div style={styles.orCircle}></div>
+          </div>
+          <div style={styles.centeredText}>
+            <p style={{ ...styles.text, fontFamily: 'Karla' }}>
+              Have an Account?{" "}
+              <a style={{ ...styles.link, fontFamily: 'Karla' }} href="/Login">
+                Login Here.
+              </a>
+            </p>
+          </div>
         </form>
       </div>
     </div>
@@ -176,21 +183,26 @@ const styles = {
     transition: "opacity 1s, transform 1s",
   },
   title: {
-    color: "#fff",
+    color: "#FBEC52",
+    fontFamily: "Lora, serif",
   },
   label: {
     color: "#fff",
+    fontFamily: "Karla, sans-serif",
   },
   nameGroup: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space between",
+    fontFamily: "Karla, sans-serif",
   },
   nameInput: {
     flex: 1,
     paddingRight: "10px",
+    fontFamily: "Karla, sans-serif",
   },
   inputGroup: {
     marginBottom: "10px",
+    fontFamily: "Karla, sans-serif",
   },
   input: {
     width: "100%",
@@ -208,6 +220,7 @@ const styles = {
   },
   text: {
     color: "#fff",
+    fontFamily: "Karla, sans-serif",
   },
   radioGroup: {
     display: "flex",
@@ -220,6 +233,19 @@ const styles = {
   },
   radioLabel: {
     color: "#fff",
+    fontFamily: "Karla, sans-serif",
+  },
+  orLine: {
+    display: "flex",
+    alignItems: "center",
+  },
+  orCircle: {
+    flex: "1",
+    borderBottom: "1px solid #fff",
+  },
+  orText: {
+    color: "#fff",
+    padding: "10px",
   },
 };
 
