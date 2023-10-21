@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { useStateContext } from "../context/ContextProvider";
 import axiosClient from "../axios-client";
 import { useNavigate } from "react-router-dom";
 
@@ -51,49 +50,11 @@ export default function SignUp() {
       });
   };
 
-  const styles = {
-    pageContainer: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-      backgroundColor: "#957964",
-    },
-    signUpForm: {
-      backgroundColor: "#5E1219",
-      padding: "1%",
-      borderRadius: "8px",
-      width: "400px",
-      margin: "auto", // Tengah horisontal
-      marginTop: "100px", // Atur jarak dari atas
-      textAlign: "left",
-      transition: "opacity 1s, transform 1s",
-    },
-    title: {
-      color: "#fff",
-    },
-    label: {
-      color: "#fff",
-    },
-    inputGroup: {
-      marginBottom: "10px",
-    },
-    input: {
-      width: "100%",
-      background: "transparent",
-      border: "1px solid #fff",
-      borderRadius: "4px",
-      padding: "10px",
-      color: "#fff",
-    },
-    // ... (Gaya yang lain)
-  };
-
   return (
     <div style={styles.pageContainer}>
-      <div>
-        <h1 style={styles.title}>Create your Account!</h1>
+      <div style={styles.centeredText}>
         <form style={styles.signUpForm} onSubmit={onSubmit}>
+          <h1 style={styles.title}>Create your Account!</h1>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Username:</label>
             {errors && errors.username && (
@@ -104,21 +65,21 @@ export default function SignUp() {
             </div>
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>First Name:</label>
-            {errors && errors.first_name && (
-              <p className="text-red-600">{errors.first_name[0]}</p>
-            )}
-            <div>
-              <input ref={firstNameRef} placeholder="Your First Name" style={styles.input} />
-            </div>
-          </div>
-          <div style={styles.inputGroup}>
-            <label style={styles.label}>Last Name:</label>
-            {errors && errors.last_name && (
-              <p className="text-red-600">{errors.last_name[0]}</p>
-            )}
-            <div>
-              <input ref={lastNameRef} placeholder="Your Last Name" style={styles.input} />
+            <div style={styles.nameGroup}>
+              <div style={styles.nameInput}>
+                <label style={styles.label}>First Name:</label>
+                {errors && errors.first_name && (
+                  <p className="text-red-600">{errors.first_name[0]}</p>
+                )}
+                <input ref={firstNameRef} placeholder="Your First Name" style={styles.input} />
+              </div>
+              <div style={styles.nameInput}>
+                <label style={styles.label}>Last Name:</label>
+                {errors && errors.last_name && (
+                  <p className="text-red-600">{errors.last_name[0]}</p>
+                )}
+                <input ref={lastNameRef} placeholder="Your Last Name" style={styles.input} />
+              </div>
             </div>
           </div>
           <div style={styles.inputGroup}>
@@ -136,23 +97,13 @@ export default function SignUp() {
               <p className="text-red-600">{errors.gender[0]}</p>
             )}
             <div>
-              <label>
+              <label style={{ color: "#fff" }}>
                 Male
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Male"
-                  ref={maleGenderRef}
-                />
+                <input type="radio" name="gender" value="Male" ref={maleGenderRef} />
               </label>
-              <label>
+              <label style={{ color: "#fff", marginLeft: "20px" }}>
                 Female
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Female"
-                  ref={femaleGenderRef}
-                />
+                <input type="radio" name="gender" value="Female" ref={femaleGenderRef} />
               </label>
             </div>
           </div>
@@ -162,11 +113,7 @@ export default function SignUp() {
               <p className="text-red-600">{errors.date_of_birth[0]}</p>
             )}
             <div>
-              <input
-                ref={dateOfBirthRef}
-                type="date"
-                style={styles.input}
-              />
+              <input ref={dateOfBirthRef} type="date" style={styles.input} />
             </div>
           </div>
           <div style={styles.inputGroup}>
@@ -175,12 +122,7 @@ export default function SignUp() {
               <p className="text-red-600">{errors.password[0]}</p>
             )}
             <div>
-              <input
-                ref={passwordRef}
-                type="password"
-                placeholder="Enter your Password"
-                style={styles.input}
-              />
+              <input ref={passwordRef} type="password" placeholder="Enter your Password" style={styles.input} />
             </div>
           </div>
           <div style={styles.inputGroup}>
@@ -189,12 +131,7 @@ export default function SignUp() {
               <p className="text-red-600">{errors.password_confirmation[0]}</p>
             )}
             <div>
-              <input
-                ref={passwordConfirmationRef}
-                type="password"
-                placeholder="Re-enter your password"
-                style={styles.input}
-              />
+              <input ref={passwordConfirmationRef} type="password" placeholder="Re-enter your password" style={styles.input} />
             </div>
           </div>
           <button style={styles.button}>Sign Up</button>
@@ -209,3 +146,75 @@ export default function SignUp() {
     </div>
   );
 }
+
+const styles = {
+  pageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#957964",
+  },
+  centeredText: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  signUpForm: {
+    backgroundColor: "#5E1219",
+    padding: "3%",
+    borderRadius: "8px",
+    width: "400px",
+    margin: "auto",
+    marginTop: "10px",
+    textAlign: "left",
+    transition: "opacity 1s, transform 1s",
+  },
+  title: {
+    color: "#fff",
+  },
+  label: {
+    color: "#fff",
+  },
+  nameGroup: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  nameInput: {
+    flex: 1,
+    paddingRight: "10px",
+  },
+  inputGroup: {
+    marginBottom: "10px",
+  },
+  input: {
+    width: "100%",
+    background: "transparent",
+    border: "1px solid #fff",
+    borderRadius: "4px",
+    padding: "10px",
+    color: "#fff",
+  },
+  button: {
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    color: "#5E1219",
+    width: "100%",
+    borderRadius: "20px",
+  },
+  text :{
+    color:"#ffff"
+  }
+};
+
+const keyframes = {
+  '@keyframes fadeInUp': {
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0, -20%, 0)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translate3d(0, 0, 0)',
+    },
+  },
+};

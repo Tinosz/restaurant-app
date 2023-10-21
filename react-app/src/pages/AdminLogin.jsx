@@ -37,71 +37,10 @@ export default function AdminLogin() {
       });
   }
 
-  const styles = {
-    pageContainer: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-      backgroundColor: "#957964",
-    },
-    loginBox: {
-      border: "none",
-      padding: "1%",
-      borderRadius: "8px",
-      width: "400px",
-      backgroundColor: "#5E1219",
-      textAlign: "left",
-      transition: "opacity 1s, transform 1s",
-    },
-    title: {
-      color: "#fff",
-    },
-    label: {
-      color: "#fff",
-    },
-    inputGroup: {
-      marginBottom: "10px",
-    },
-    input: {
-      width: "100%",
-      background: "transparent",
-      border: "1px solid #fff",
-      borderRadius: "4px",
-      padding: "10px",
-      color: "#fff",
-    },
-    button: {
-      backgroundColor: "rgba(255, 255, 255, 0.3)",
-      color: "#5E1219",
-      width: "100%",
-      borderRadius: "20px",
-    },
-    centeredText: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    text: {
-      color: "#fff",
-      marginTop: "10px",
-    },
-    link: {
-      color: "#fff",
-      transition: "color 0.3s",
-    },
-    hoverButton: {
-      cursor: "pointer",
-    },
-    hoverLink: {
-      cursor: "pointer",
-    },
-  };
-
   return (
     <div style={styles.pageContainer}>
       <div style={styles.loginBox}>
-        <h1 style={styles.title}>Sign in to the Admin Account</h1>
+        <h1 style={styles.title}>Sign in to the Admin Account</h1><br></br>
         <form onSubmit={onSubmit}>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Admin Username:</label>
@@ -139,3 +78,79 @@ export default function AdminLogin() {
     </div>
   );
 }
+
+
+
+const styles = {
+  pageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#957964",
+  },
+  loginBox: {
+    border: "none",
+    padding: "1%",
+    borderRadius: "8px",
+    width: "400px",
+    backgroundColor: "#5E1219",
+    textAlign: "left",
+    transition: "opacity 1s, transform 1s",
+  },
+  title: {
+    color: "#fff",
+  },
+  label: {
+    color: "#fff",
+  },
+  inputGroup: {
+    marginBottom: "10px",
+  },
+  input: {
+    width: "100%",
+    background: "transparent",
+    border: "1px solid #fff",
+    borderRadius: "4px",
+    padding: "10px",
+    color: "#fff",
+  },
+  button: {
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    color: "#5E1219",
+    width: "100%",
+    borderRadius: "20px",
+  },
+  centeredText: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  text: {
+    color: "#fff",
+    marginTop: "10px",
+  },
+  link: {
+    color: "#fff",
+    transition: "color 0.3s",
+  },
+  hoverButton: {
+    cursor: "pointer",
+  },
+  hoverLink: {
+    cursor: "pointer",
+  },
+};
+
+const keyframes = {
+  '@keyframes fadeInUp': {
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0, -20%, 0)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translate3d(0, 0, 0)',
+    },
+  },
+};
