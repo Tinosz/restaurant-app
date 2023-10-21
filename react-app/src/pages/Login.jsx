@@ -41,7 +41,7 @@ export default function Login() {
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+  }, []);  
 
   return (
     <div style={styles.pageContainer}>

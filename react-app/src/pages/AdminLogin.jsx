@@ -36,6 +36,9 @@ export default function AdminLogin() {
         }
       });
   }
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);  
 
   return (
     <div style={styles.pageContainer}>
