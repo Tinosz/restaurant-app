@@ -49,15 +49,12 @@ export default function SignUp() {
         }
       });
   };
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);  
-
+  
   return (
     <div style={styles.pageContainer}>
       <div style={styles.centeredText}>
         <form style={styles.signUpForm} onSubmit={onSubmit}>
-          <h1 style={styles.title}>Create your Account!</h1>
+          <h1 style={styles.title}>Create your Account!</h1><br></br>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Username:</label>
             {errors && errors.username && (
