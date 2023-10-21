@@ -67,12 +67,20 @@ export default function AdminLogin() {
             </div>
           </div>
           <button style={styles.button}>Sign In</button>
-          <p style={styles.text}>
-            Are you a User?{" "}
-            <a style={styles.link} href="/Login">
-              Log In here.
-            </a>
-          </p>
+
+          <div style={styles.orLine}>
+            <div style={styles.orCircle}></div>
+            <div style={styles.orText}>OR</div>
+            <div style={styles.orCircle}></div>
+          </div>
+          <div style={styles.centeredText}>
+            <p style={styles.text}>
+              Are you a User?{" "}
+              <a style={styles.link} href="/Login">
+                Log In here.
+              </a>
+            </p>
+          </div>
         </form>
       </div>
     </div>
@@ -139,6 +147,18 @@ const styles = {
   },
   hoverLink: {
     cursor: "pointer",
+  },
+  orLine: {
+    display: "flex",
+    alignItems: "center",
+  },
+  orCircle: {
+    flex: "1",
+    borderBottom: "1px solid #fff",
+  },
+  orText: {
+    color: "#fff",
+    padding: "10px",
   },
 };
 

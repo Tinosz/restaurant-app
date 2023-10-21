@@ -96,15 +96,15 @@ export default function SignUp() {
             {errors && errors.gender && (
               <p className="text-red-600">{errors.gender[0]}</p>
             )}
-            <div>
-              <label style={{ color: "#fff" }}>
-                Male
+            <div style={styles.radioGroup}>
+              <div style={styles.radioOption}>
                 <input type="radio" name="gender" value="Male" ref={maleGenderRef} />
-              </label>
-              <label style={{ color: "#fff", marginLeft: "20px" }}>
-                Female
+                <label style={styles.radioLabel}>Male</label>
+              </div>
+              <div style={styles.radioOption}>
                 <input type="radio" name="gender" value="Female" ref={femaleGenderRef} />
-              </label>
+                <label style={styles.radioLabel}>Female</label>
+              </div>
             </div>
           </div>
           <div style={styles.inputGroup}>
@@ -201,20 +201,19 @@ const styles = {
     width: "100%",
     borderRadius: "20px",
   },
-  text :{
-    color:"#ffff"
-  }
-};
-
-const keyframes = {
-  '@keyframes fadeInUp': {
-    from: {
-      opacity: 0,
-      transform: 'translate3d(0, -20%, 0)',
-    },
-    to: {
-      opacity: 1,
-      transform: 'translate3d(0, 0, 0)',
-    },
+  text: {
+    color: "#fff",
+  },
+  radioGroup: {
+    display: "flex",
+    width: "auto",
+  },
+  radioOption: {
+    display: "flex",
+    alignItems: "center",
+    marginRight: "auto",
+  },
+  radioLabel: {
+    color: "#fff",
   },
 };
