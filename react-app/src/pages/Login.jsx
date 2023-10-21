@@ -39,29 +39,12 @@ export default function Login() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        backgroundColor: "#957964", // Latar belakang halaman
-      }}
-    >
-      <div
-        style={{
-          border: "1px solid #ccc",
-          padding: "20px",
-          borderRadius: "8px",
-          width: "300px",
-          backgroundColor: "rgba(94, 18, 25, 0.8)", // Transparan 80%
-          textAlign: "center", // Teks di tengah
-        }}
-      >
-        <h1 style={{ color: "#fff" }}>Sign in to your account</h1>
+    <div style={styles.pageContainer}>
+      <div style={styles.loginBox}>
+        <h1 style={styles.title}>Sign in to your account</h1>
         <form onSubmit={onSubmit}>
-          <div>
-            <label style={{ color: "#fff" }}>Email/Username:</label>
+          <div style={styles.inputGroup}>
+            <label style={styles.label}>Email/Username:</label>
             {errors && errors.login && (
               <p className="text-red-600">{errors.login[0]}</p>
             )}
@@ -69,12 +52,12 @@ export default function Login() {
               <input
                 ref={loginRef}
                 placeholder="Enter your Email/Username"
-                style={{ width: "100%", background: "transparent" }}
+                style={styles.input}
               />
             </div>
           </div>
-          <div>
-            <label style={{ color: "#fff" }}>Password</label>
+          <div style={styles.inputGroup}>
+            <label style={styles.label}>Password</label>
             {errors && errors.password && (
               <p className="text-red-600">{errors.password[0]}</p>
             )}
@@ -83,27 +66,54 @@ export default function Login() {
                 ref={passwordRef}
                 type="password"
                 placeholder="Enter your Password"
-                style={{ width: "100%", background: "transparent" }}
+                style={styles.input}
               />
             </div>
           </div>
-          <button style={{ backgroundColor: "#fff", color: "#5E1219" }}>
-            Sign In
-          </button>
-          <p style={{ color: "#fff", marginTop: "10px" }}>
-            Don't have an account?{" "}
-            <a style={{ color: "#fff" }} href="/SignUp">
-              Sign Up here.
-            </a>
-          </p>
-          <p style={{ color: "#fff" }}>
-            Are you an Admin?{" "}
-            <a style={{ color: "#fff" }} href="/AdminLogin">
-              Log In here.
-            </a>
-          </p>
+          <button style={styles.button}>Sign In</button>
+          <p style={{ ...styles.text, marginTop: "20px" }}>Don't have an account? <a href="/SignUp">Sign Up here.</a></p>
+          <p style={styles.text}>Are you an Admin? <a href="/AdminLogin">Log In here.</a></p>
         </form>
       </div>
     </div>
   );
 }
+
+const styles = {
+  pageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#957964", // Latar belakang halaman
+  },
+  loginBox: {
+    border: "none", // Menghilangkan border
+    padding: "3%",
+    borderRadius: "8px",
+    width: "400px", // Lebih besar
+    backgroundColor: "rgba(94, 18, 25, 0.7)", // Transparan 30%
+    textAlign: "left", // Teks di kiri
+  },
+  title: {
+    color: "#fff",
+  },
+  label: {
+    color: "#fff",
+  },
+  inputGroup: {
+    marginBottom: "10px",
+  },
+  input: {
+    width: "100%",
+    background: "transparent",
+  },
+  button: {
+    backgroundColor: "rgba(255, 255, 255, 0.3)", // Transparan 30%
+    color: "#5E1219",
+  },
+  text: {
+    color: "#fff",
+    marginTop: "10px",
+  },
+};
