@@ -1,10 +1,11 @@
 import adminAxiosClient from "../axios-admin-client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useStateContext } from "../context/ContextProvider";
 
 export default function AdminLogin() {
   const usernameRef = useRef();
   const passwordRef = useRef();
+  const [isVisible, setIsVisible] = useState(false);
 
   const [errors, setErrors] = useState(null);
 
@@ -42,7 +43,12 @@ export default function AdminLogin() {
 
   return (
     <div style={styles.pageContainer}>
-      <div style={styles.loginBox}>
+      <div style={{
+          ...styles.loginBox,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
+        }}
+      >
         <h1 style={styles.title}>Sign in to the Admin Account</h1><br></br>
         <form onSubmit={onSubmit}>
           <div style={styles.inputGroup}>

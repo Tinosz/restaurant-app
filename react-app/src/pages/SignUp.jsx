@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import axiosClient from "../axios-client";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,7 @@ export default function SignUp() {
   const dateOfBirthRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
+  const [isVisible, setIsVisible] = useState(false);
 
   const [errors, setError] = useState(null);
   const navigate = useNavigate();
@@ -49,7 +50,11 @@ export default function SignUp() {
         }
       });
   };
-  
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []); 
+
   return (
     <div style={styles.pageContainer}>
       <div style={styles.centeredText}>

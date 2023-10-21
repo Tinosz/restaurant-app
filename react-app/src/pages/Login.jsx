@@ -174,7 +174,6 @@ const styles = {
   },
 };
 
-// Definisi keyframes di luar objek styles
 const keyframes = {
   '@keyframes fadeInUp': {
     from: {
