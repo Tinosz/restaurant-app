@@ -164,7 +164,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh",
+    height: "120vh",
     backgroundColor: "#957964",
   },
   centeredText: {
@@ -174,11 +174,10 @@ const styles = {
   },
   signUpForm: {
     backgroundColor: "#5E1219",
-    padding: "3%",
+    padding: "5%",
     borderRadius: "8px",
-    width: "400px",
-    margin: "auto",
-    marginTop: "10px",
+    width: "450px",
+    marginTop: "",
     textAlign: "left",
     transition: "opacity 1s, transform 1s",
   },
