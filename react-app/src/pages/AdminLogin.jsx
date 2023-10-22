@@ -133,7 +133,7 @@ const styles = {
   },
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
-    color: "#5E1219",
+    color: "#000",
     width: "100%",
     borderRadius: "20px",
   },
