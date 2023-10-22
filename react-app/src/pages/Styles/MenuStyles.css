@@ -1,0 +1,10 @@
+#animation-container .item {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  #animation-container .item.animate {
+    opacity: 1;
+  }
+
+  

@@ -39,32 +39,31 @@ export default function AboutUs() {
       },
     ]
 
-  console.log(`DaftarNama`, DaftarNama);
   return (
-    <section className="section-white bg-red-950 h-screen  mx-auto">
-      <div className="bg-red-950 ">
-        <div className="bg-red-950">
+    <section className="section-white bg-custom-background h-screen  mx-auto">
+      <div className="bg-custom-background ">
+        <div className="bg-custom-background">
 
-          <div className="text-center  bg-red-950 ">
-            <h2 className="section-title text-white pt-5 bg-red-950 text-4xl font-bold">
+          <div className="text-center  bg-custom-background ">
+            <h2 className="section-title text-custom-maize pt-5 bg-custom-background text-4xl font-lora">
             Welcome to our Website
             </h2>
             <p className="text-white section-subtitle font-karla">{message}</p>
           </div>
-          <div className="flex md:flex-row flex-col mx-12 md:mx-2 justify-center">
+          <div  className="flex md:flex-row flex-col mx-12 md:mx-2 justify-center">
             {DaftarNama && DaftarNama.map((item, index) => (
-              <div className='  flex  h-auto space-y-2  mt-10 md:px-4'>
-                <div className=" h-auto mt-2 justify-center flex bg-white shadow-lg  rounded-lg w-auto  cursor-pointer hover:bg-amber-900">
+              <div  className='  flex  h-auto space-y-2  mt-10 md:px-4 shadow-xl'>
+                <div className=" h-auto mt-2 justify-center flex bg-white shadow-xl  rounded-lg w-auto  cursor-pointer hover:bg-custom-maize">
                   <div className=' '>
                     <div className=' flex justify-center'>
                       <div className=' w-28 h-40 relative  mt-3 '>
-                        <img src={item.image} width={"100%"} className="rounded-lg " alt="anggota" />
+                        <img src={item.image} width={"100%"} className="rounded-lg shadow-lg  " alt="anggota" />
                       </div>
                     </div>
                     <div className="">
-                      <h3 className='font-bold flex justify-center'>{item.nama}</h3>
-                      <p className='flex justify-center'>{item.nim}</p>
-                      <p className='flex justify-center mx-3 mt-1'>{item.des}</p>
+                      <h3 className='font-lora flex justify-center'>{item.nama}</h3>
+                      <p className='flex justify-center font-lora'>{item.nim}</p>
+                      <p className='flex justify-center mx-3 mt-5 font-karla text-custom-liconice '>{item.des}</p>
                       <div className=' w-auto flex mt-5 justify-center '>
                         <ul className="team-icon flex  gap-4  mb-5 ">
                           <li>
@@ -97,7 +96,6 @@ export default function AboutUs() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section >
