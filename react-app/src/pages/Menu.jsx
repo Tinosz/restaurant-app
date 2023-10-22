@@ -3,10 +3,21 @@ import userAxiosClient from "../axios-user-client";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import menuBanner from './Styles/images/menu-banner.jpg'
+import menuBannerGlass from './Styles/images/menu-banner-Glass.png'
+import border from './Styles/images/border.png'
+import './Styles/MenuStyles.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
+
+
 export default function Menu() {
     const { adminToken, token } = useStateContext();
     const [foods, setFoods] = useState([]);
     const navigate = useNavigate();
+    const [openItems, setOpenItems] = useState({});
+    const [clickedItems, setClickedItems] = useState({});
+    
 
     //functions
     useEffect(() => {
@@ -91,19 +102,19 @@ export default function Menu() {
 
     const organizedFoods = {
         Food: {
-            appetizer: [],
-            fish: [],
-            steak: [],
-            soup: [],
-            salad: [],
-            dessert: [],
+            Appetizer: [],
+            Fish: [],
+            Steak: [],
+            Soup: [],
+            Salad: [],
+            Dessert: [],
         },
         Drink: {
-            tea: [],
-            coffee: [],
-            juice: [],
-            mocktail: [],
-            alcohol: [],
+            Tea: [],
+            Coffee: [],
+            Juice: [],
+            Mocktail: [],
+            Alcohol: [],
         },
     };
 
@@ -114,92 +125,151 @@ export default function Menu() {
         }
     });
 
+    //toggle
+    const toggleDetails = (food) => {
+        setOpenItems((prevOpenItems) => {
+            return {
+                ...prevOpenItems,
+                [food.id]: !prevOpenItems[food.id]
+            }
+        })
+    }
+
+    //mobile click
+    const handleClick = (food) => {
+        const updatedClickedItems = { ...clickedItems };
+        
+        updatedClickedItems[food.id] = !updatedClickedItems[food.id];
+        
+        setClickedItems(updatedClickedItems);
+};
+
     return (
-        <div className="container mx-auto lg:w-2/5 md:w-1/2 sm:w-full">
-            {adminToken && (
-                <p>
-                    <a href="/EditMenuForm">Add Menu Item</a>
-                </p>
-            )}
-            {Object.entries(organizedFoods).map(([foodType, categories]) => (
-                <div key={foodType}>
-                    {Object.values(categories).some(category => category.length > 0) && (
-                        <>
-                            <h2>{foodType}:</h2>
-                            {Object.entries(categories).map(([category, items]) => (
-                                <div key={category}>
-                                    {items.length > 0 && (
-                                        <div>
-                                            <h3>{category}:</h3>
-                                            {items.map((food) => (
-                                                <div key={food.id}>
-                                                    <div className="flex justify-between">
-                                                        <div className="flex flex-col">
-                                                            <p>{food.food_name}</p>
-                                                            <p>{formattedCost(food.cost)}</p>
-                                                        </div>
-                                                        <div className="flex items-center">
-                                                            {adminToken ? (
-                                                                <div>
-                                                                    <Link
-                                                                        to={"/EditMenuForm/" + food.id}
-                                                                        className="mr-3"
-                                                                    >
-                                                                        Edit
-                                                                    </Link>
-                                                                    <button onClick={(e) => onDelete(food)}>
-                                                                        Delete
-                                                                    </button>
-                                                                </div>
-                                                            ) : (
-                                                                <div>
-                                                                    {localStorage.getItem("order") &&
-                                                                    JSON.parse(localStorage.getItem("order"))[food.id] ? (
-                                                                        <div>
-                                                                            <button
-                                                                                onClick={() => removeFromPlate(food)}
-                                                                            >
-                                                                                -
-                                                                            </button>
-                                                                            <span>
-                                                                                {
-                                                                                    JSON.parse(localStorage.getItem("order"))[food.id]
-                                                                                }
-                                                                            </span>
-                                                                            <button onClick={() => addToPlate(food)}>
-                                                                                +
-                                                                            </button>
+        <div className="menu-wrapper">
+            <header className="menu-header h-full section1-menu">
+                <img className="w-full h-full background-menu" src={menuBanner} />
+                <div className="background-menu-filter"></div>
+                <div className="menu-header-text">
+                    <h1 className="text-center lg:text-8xl md:text-7xl text-6xl header-menu-color header-menu-font header-text-menu">-Menu-</h1>
+                </div>
+                <img className="w-full h-full background-menu-glass" src={menuBannerGlass} />
+            </header>
+            <div className="menu-normal w-full absolute section2-menu">
+                <div className="container mx-auto relative">
+                    <img src={border} className="rotate-180 -scale-x-100 absolute xl:w-2/12 md:w-1/6 w-1/3 -top-20 z-10"/>
+                    <div className="mx-auto 2xl:w-2/5 lg:w-2/5 md:w-1/2 w-3/4 mt-20">
+                    {adminToken && (
+                            <p className="">
+                                <a href="/EditMenuForm" className="description-menu-font text-base menu-button p-2 rounded-full">Add Menu Item</a>
+                            </p>
+                        )}                    
+                        <div>
+                            {Object.entries(organizedFoods).map(([foodType, categories]) => (
+                                <div key={foodType}>
+                                    {Object.values(categories).some(category => category.length > 0) && (
+                                        <>
+                                            <h2 className="lg:text-5xl md:text-4xl text-4xl header-color header2-menu-font text-center mt-10">{foodType}</h2>
+                                            {Object.entries(categories).map(([category, items]) => (
+                                                <div key={category}>
+                                                    {items.length > 0 && (
+                                                        <div>
+                                                            <h3 className="header-color header2-menu-font text-3xl">{category}</h3>
+                                                            {items.map((food) => (
+                                                                <div onClick={() => toggleDetails(food)} className="cursor-pointer hoverable-menu">
+                                                                    <div  key={food.id}
+                                                                        onClick={() => handleClick(food)}
+                                                                        className={`hoverable-menu ${clickedItems[food.id] ? 'clicked' : ''}`}>
+                                                                        <hr className="menu-divider mx-auto my-5"/>
+                                                                        <div className="mx-4" key={food.id}>
+                                                                            <div className="flex justify-between">
+                                                                                <div className="flex flex-col">
+                                                                                    <p className="subheader-menu-color subheader-menu-font lg:text-2xl md:text-2xl text-lg">{food.food_name}</p>
+                                                                                    <p className="description-menu-font description-menu-color lg:text-2xl sm:text-2xl text-base">{formattedCost(food.cost)}</p>
+                                                                                </div>
+                                                                                <div onClick={(e) => {
+                                                                                    e.stopPropagation();
+                                                                                }}>
+                                                                                    <div className="flex items-center">
+                                                                                        {adminToken ? (
+                                                                                            <div className="w-32">
+                                                                                                <Link
+                                                                                                    to={"/EditMenuForm/" + food.id}
+                                                                                                    className="mr-3 description-menu-font text-base menu-button p-2 rounded-full"
+                                                                                                >
+                                                                                                    Edit
+                                                                                                </Link>
+                                                                                                <button onClick={(e) => onDelete(food)} className="description-menu-font text-base menu-button p-2 rounded-full">
+                                                                                                    Delete
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        ) : (
+                                                                                            <div>
+                                                                                                {localStorage.getItem("order") &&
+                                                                                                JSON.parse(localStorage.getItem("order"))[food.id] ? (
+                                                                                                    <div className="h-10 w-20 mx-auto">
+                                                                                                        <button className="mr-2 description-menu-color increment-decrement-menu-button"
+                                                                                                            onClick={() => removeFromPlate(food)}
+                                                                                                        >
+                                                                                                            <FontAwesomeIcon icon={faCircleMinus} />
+                                                                                                        </button>
+                                                                                                        <span className="description-menu-color lg:text-2xl sm:text-2xl text-base">
+                                                                                                            {
+                                                                                                                JSON.parse(localStorage.getItem("order"))[food.id]
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                        <button className="ml-2 description-menu-color increment-decrement-menu-button"
+                                                                                                            onClick={() => addToPlate(food)}>
+                                                                                                            <FontAwesomeIcon icon={faCirclePlus} />
+                                                                                                        </button>
+                                                                                                    </div>
+                                                                                                ) : (
+                                                                                                    <div className="h-5" onClick={() => addToPlate(food)}> 
+                                                                                                        <button className="description-menu-font text-base menu-button p-2 rounded-full w-28">
+                                                                                                            Add to Plate
+                                                                                                        </button>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className={`menu-item-details ${openItems[food.id] ? 'open' : ''}`}>
+                                                                                <div className="lg:flex md:flex">
+                                                                                    <div className="mr-3">
+                                                                                        <img
+                                                                                            className="rounded menu-image object-cover"
+                                                                                            src={`${import.meta.env.VITE_API_BASE_URL}/storage/${food.food_image}`}
+                                                                                            alt={food.food_name}
+                                                                                            onError={(e) => {
+                                                                                                try {
+                                                                                                    e.preventDefault();
+                                                                                                } catch (error) {}
+                                                                                                handleImageError(food);
+                                                                                            }}
+                                                                                        />
+                                                                                    </div>
+                                                                                    <p className="description-menu-color description-menu-font text-base my-auto w-3/4">{food.description}</p>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                    ) : (
-                                                                        <button onClick={() => addToPlate(food)}>
-                                                                            Add to Plate
-                                                                        </button>
-                                                                    )}
+                                                                        <hr className="menu-divider mx-auto my-5"/>
+                                                                    </div>
                                                                 </div>
-                                                            )}
+                                                            ))}
                                                         </div>
-                                                    </div>
-                                                    <img
-                                                        src={`${import.meta.env.VITE_API_BASE_URL}/storage/${food.food_image}`}
-                                                        alt={food.food_name}
-                                                        onError={(e) => {
-                                                            try {
-                                                                e.preventDefault();
-                                                            } catch (error) {}
-                                                            handleImageError(food);
-                                                        }}
-                                                    />
-                                                    <p>{food.description}</p>
+                                                    )}
                                                 </div>
                                             ))}
-                                        </div>
+                                        </>
                                     )}
                                 </div>
                             ))}
-                        </>
-                    )}
+                        </div>
+                    </div>
+                    <img src={border} className="-scale-x-100 absolute xl:w-2/12 md:w-1/6 w-1/3 z-10 right-0"/>
                 </div>
-            ))}
+            </div>
         </div>
     );
 }

@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:ital,wght@0,400;0,700;1,700&family=Young+Serif&display=swap');
+
+.parallax-menu, .parallax-menu-images{
+    height: 100%;
+}
+
+.parallax-menu{
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+.parallax-menu-images{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+
+.menu-wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    perspective: 1px;
+}
+
+.menu-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.background-menu,
+.background-menu-glass {
+    position: absolute;
+    object-fit: cover;
+}
+
+.background-menu{
+    z-index: -1;
+}
+
+.background-menu-filter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(94, 18, 25, 0.5);
+    z-index: -1; 
+}
+
+.background-menu {
+    transform: translateZ(-1px) scale(2);
+    -webkit-transform: translateZ(-1px) scale(2); /* WebKit prefix */
+}
+
+.menu-header-text {
+    transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-5%, 25%);
+    -webkit-transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-5%, 25%); /* WebKit prefix */
+}
+
+.menu-normal {
+    background-color: #5E1219;
+}
+
+.header-menu-color {
+    color: #FBEC52;
+    text-shadow: 0 0 5px  black;
+}
+
+.header-menu-font{
+    font-family: 'Young Serif', serif;
+}
+
+.header-color{
+    color: #FBEC52;
+}
+.header2-menu-font{
+    font-family: 'Young Serif', serif;
+}
+
+.subheader-menu-color{
+    color: #FEFCFF;
+}
+
+.subheader-menu-font{
+    font-family: 'Young Serif', serif;
+}
+
+.description-menu-font{
+    font-family: 'Karla', sans-serif;
+}
+
+.description-menu-color{
+    color: #FEFCFF;
+}
+
+.menu-image{
+    height: 150px;
+    width: 200px;
+}
+
+.menu-item-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+
+.menu-item-details.open {
+    max-height: 500px;
+}
+
+.menu-button {
+    background-color: #FEFCFF;
+    color: #5E1219;
+    transition: background-color 0.3s, opacity 0.1s;
+}
+
+.menu-button:hover {
+    background-color: rgba(254, 252, 255, 0.5); 
+}
+
+.increment-decrement-menu-button{
+    transition: color 0.3s, opacity 0.1s;
+
+}
+
+.increment-decrement-menu-button:hover {
+    color: rgba(254, 252, 255, 0.5); 
+}
+
+.hoverable-menu{
+    transition: border 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.hoverable-menu:hover{
+    border:1px solid #FEFCFF;
+}
+
+
+.hoverable-menu {
+    transition: border 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.hoverable-menu.clicked {
+    border: 1px solid #FEFCFF;
+}
+
+.navigation-bar-text-color-submain {
+position: relative;
+overflow: hidden;
+}
+
+.text-float-up {
+display: block;
+transition: transform 0.25s ease-in-out;
+}
+
+.text-float-up::before {
+content: "Logout";
+display: block;
+position: absolute;
+bottom: 0;
+transform: translateY(100%);
+transition: transform 0.25s ease-in-out;
+}
+    
+
+.navigation-bar-text-color-submain:hover .text-float-up {
+transform: translateY(-100%);
+}
+
+.navigation-bar-text-color-submain:hover .text-float-up::before {
+transform: translateY(100%);
+}
+
+.text-float-up-login {
+    display: block;
+    transition: transform 0.25s ease-in-out;
+    }
+
+.text-float-up-login::before {
+    content: "Log In";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: transform 0.25s ease-in-out;
+    }
+
+.navigation-bar-text-color-submain:hover .text-float-up-login {
+    transform: translateY(-100%);
+}
+    
+.navigation-bar-text-color-submain:hover .text-float-up-login::before {
+    transform: translateY(100%);
+}
+
+.text-float-up-your-order{
+    display: block;
+    transition: transform 0.25s ease-in-out;
+}
+
+.text-float-up-your-order::before {
+    content: "Your Orders";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: transform 0.25s ease-in-out;
+}
+.navigation-bar-text-color-submain:hover .text-float-up-your-order {
+    transform: translateY(-100%);
+}
+    
+.navigation-bar-text-color-submain:hover .text-float-up-your-order::before {
+    transform: translateY(100%);
+}
+
+
+.line-navigation-bar::before,
+.line-navigation-bar::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: black; 
+    margin-top: 5px; 
+    transition: margin-top 0.3s ease;
+    top: 50%; 
+}
+
+a:hover .line-navigation-bar::after {
+    margin-top: 10px; 
+}
+
+.with-line-nav::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: black; 
+    transform: scaleX(0); 
+    transform-origin: 0 100%;
+    transition: transform 0.3s ease; 
+}
+
+
+.with-line-nav:hover::after {
+    transform: scaleX(1); 
+}
+
+.line-navigation-bar-your-order {
+    display: block;
+    width: 100%; 
+    height: 1px; 
+    margin-top: 5px;
+    background-color: #000; 
+    transition: margin-top 0.3s ease; /* Use transition for margin-top */
+}
+
+a:hover .line-navigation-bar-your-order {
+    margin-top: 10px; /* New margin position on hover */
+}

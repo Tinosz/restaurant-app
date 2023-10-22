@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:ital,wght@0,400;0,700;1,700&family=Young+Serif&display=swap');
+
+
+.navigation-bar-color {
+    background-color: #fefcff;
+}
+
+.navigation-bar-text-color-main {
+    color: #2a1c1c;
+    font-family: "Young Serif", serif;
+}
+
+.navigation-bar-text-color-submain {
+    color: #2a1c1c;
+    font-family: "Lora", serif;
+}
+
+.mobile-nav{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-desktop{
+        display: none;
+    }
+
+    .mobile-nav{
+        display: block;
+        z-index: 10;
+    }
+
+    /* Add this CSS in your stylesheet */
+.mobile-menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-menu-navbar {
+    flex-grow: 1;
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.mobile-menu-backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+}
+
+nav{
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
