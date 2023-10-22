@@ -146,14 +146,11 @@ export default function Menu() {
 
     return (
         <div className="menu-wrapper">
-            <header className="menu-header h-full section1-menu">
-                <img className="w-full h-full background-menu" src={menuBanner} />
-                <div className="background-menu-filter"></div>
-                <div className="menu-header-text">
-                    <h1 className="text-center lg:text-8xl md:text-7xl text-6xl header-menu-color header-menu-font header-text-menu">-Menu-</h1>
-                </div>
-                <img className="w-full h-full background-menu-glass" src={menuBannerGlass} />
-            </header>
+            <header className="menu-header">
+                <img className="background-menu" src={menuBanner} />
+                <h1 className="lg:text-8xl md:text-7xl text-6xl header-menu-color header-menu-font menu-header-text">-Menu-</h1>
+                <img className="background-menu-glass" src={menuBannerGlass} />
+        </header>
             <div className="menu-normal w-full absolute section2-menu">
                 <div className="container mx-auto relative">
                     <img src={border} className="rotate-180 -scale-x-100 absolute xl:w-2/12 md:w-1/6 w-1/3 -top-20 z-10"/>

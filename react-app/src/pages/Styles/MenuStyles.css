@@ -1,24 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:ital,wght@0,400;0,700;1,700&family=Young+Serif&display=swap');
 
-.parallax-menu, .parallax-menu-images{
-    height: 100%;
+.menu-wrapper{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 1px;
 }
 
-.parallax-menu{
-    display: block;
+.menu-header{
     position: relative;
-    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
 }
 
-.parallax-menu-images{
-    height: 100%;
-    width: 100%;
+
+.background-menu,
+.background-menu-glass{
     position: absolute;
+    height: 100%;
+    width: 100%;    
     object-fit: cover;
 }
 
+.background-menu{
+    filter: blur(5px);
+    z-index: -1;
+    transform: translateZ(-1px) scale(2); 
+}
 
-.menu-wrapper {
+.menu-header-text{
+    transform: translateZ(-.5px) scale(1.5) translate(0%, -200%);
+}
+
+
+/* .menu-wrapper {
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -30,14 +50,16 @@
     display: flex;
     justify-content: center;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
     overflow: hidden;
+    z-index: -1;
 }
 
 .background-menu,
 .background-menu-glass {
     position: absolute;
     object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .background-menu{
@@ -57,13 +79,11 @@
 
 .background-menu {
     transform: translateZ(-1px) scale(2);
-    -webkit-transform: translateZ(-1px) scale(2); /* WebKit prefix */
 }
 
 .menu-header-text {
     transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-5%, 25%);
-    -webkit-transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-5%, 25%); /* WebKit prefix */
-}
+} */
 
 .menu-normal {
     background-color: #5E1219;
