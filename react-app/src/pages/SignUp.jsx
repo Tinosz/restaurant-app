@@ -305,7 +305,7 @@ export default function SignUp() {
           <div style={styles.centeredText}>
             <p style={{ ...styles.text, fontFamily: "Karla" }}>
               Have an Account?{" "}
-              <a style={{ ...styles.link, fontFamily: "Karla" }} href="/Login">
+              <a style={{ ...styles.link, fontFamily: "Karla", color:"#7a3320" }} href="/Login">
                 Login Here.
               </a>
             </p>

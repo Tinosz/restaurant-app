@@ -86,7 +86,7 @@ export default function AdminLogin() {
           <div style={styles.centeredText}>
             <p style={{...styles.text, fontFamily: 'Karla'}}>
               Are you a User?{" "}
-              <a style={{...styles.link, fontFamily: 'Karla'}} href="/Login">
+              <a style={{...styles.link, fontFamily: 'Karla', color:"#7a3320"}} href="/Login">
                 Log In here.
               </a>
             </p>

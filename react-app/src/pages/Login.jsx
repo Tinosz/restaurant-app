@@ -89,10 +89,10 @@ export default function Login() {
           </div>
           <div style={styles.centeredText}>
           <p style={{ ...styles.text, fontFamily: 'Karla' }}>
-            Don't have an account? <a href="/SignUp" style={{ ...styles.link, ...styles.hoverLink }}>Sign Up here.</a>
+            Don't have an account? <a href="/SignUp" style={{ ...styles.link, ...styles.hoverLink, color:"#7a3320" }}>Sign Up here.</a>
           </p>
           <p style={{ ...styles.text, fontFamily: 'Karla' }}>
-            Are you an Admin? <a href="/AdminLogin" style={{ ...styles.link, ...styles.hoverLink }}>Log In here.</a>
+            Are you an Admin? <a href="/AdminLogin" style={{ ...styles.link, ...styles.hoverLink, color:"#7a3320" }}>Log In here.</a>
           </p>
           </div>
         </form>
