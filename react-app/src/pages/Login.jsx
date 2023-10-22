@@ -48,8 +48,8 @@ export default function Login() {
       <div
         style={{
           ...styles.loginBox,
-          animation: "fadeInUp 1s", 
-          opacity: isVisible ? 1 : 0,
+          animation: "fadeInUp 1s",
+          opacity: isVisible ? 1 : 0
         }}
       >
         <h1 style={{ ...styles.title, fontFamily: 'Lora' }}>Sign in to your account</h1><br></br>
@@ -63,7 +63,7 @@ export default function Login() {
               <input
                 ref={loginRef}
                 placeholder="Enter your Email/Username"
-                style={styles.input}
+                style={{...styles.input, fontFamily: 'Karla'}}
               />
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Login() {
                 ref={passwordRef}
                 type="password"
                 placeholder="Enter your Password"
-                style={styles.input}
+                style={{...styles.input, fontFamily: 'Karla', outline: 'none'}}
               />
             </div>
           </div>
@@ -107,21 +107,21 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#957964",
+    backgroundColor: "#5E1219",
   },
   loginBox: {
     border: "none",
     padding: "1%",
     borderRadius: "8px",
     width: "400px",
-    backgroundColor: "#5E1219",
+    backgroundColor: "#957964",
     textAlign: "left",
   },
   title: {
     color: "#FBEC52",
   },
   label: {
-    color: "#fff",
+    color: "#000", // Mengganti warna label menjadi hitam
   },
   inputGroup: {
     marginBottom: "10px",
@@ -129,14 +129,15 @@ const styles = {
   input: {
     width: "100%",
     background: "transparent",
-    border: "1px solid #fff",
-    borderRadius: "4px",
+    border: "1px solid #fff", // Mengganti warna border menjadi hitam
+    borderRadius: "10px",
     padding: "10px",
-    color: "#fff",
+    color: "#000", // Mengganti warna tulisan input menjadi hitam
+    outline: 'none',
   },
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
-    color: "#5E1219",
+    color: "#000", // Mengganti warna tombol menjadi hitam
     width: "100%",
     borderRadius: "20px",
   },
@@ -146,10 +147,10 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #fff",
+    borderBottom: "1px solid #000", 
   },
   orText: {
-    color: "#fff",
+    color: "#000",
     padding: "10px",
   },
   centeredText: {
@@ -158,11 +159,11 @@ const styles = {
     alignItems: "center",
   },
   text: {
-    color: "#fff",
+    color: "#000", // Mengganti warna teks menjadi hitam
     marginTop: "10px",
   },
   link: {
-    color: "#fff",
+    color: "#000", // Mengganti warna tautan menjadi hitam
     transition: "color 0.3s",
   },
   hoverButton: {

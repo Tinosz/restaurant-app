@@ -97,7 +97,7 @@ export default function SignUp() {
             <div>
               {/* Fase Pertama */}
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   First Name:
                 </label>
                 {errors && errors.first_name && (
@@ -117,7 +117,7 @@ export default function SignUp() {
                 </div>
               </div>
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   Last Name:
                 </label>
                 {errors && errors.last_name && (
@@ -137,7 +137,7 @@ export default function SignUp() {
                 </div>
               </div>
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   Gender:
                 </label>
                 {errors && errors.gender && (
@@ -157,7 +157,7 @@ export default function SignUp() {
                       ref={maleGenderRef}
                     />
                     <label
-                      style={{ ...styles.radioLabel, fontFamily: "Karla" }}
+                      style={{ ...styles.radioLabel, fontFamily: "Karla", color: "#000" }}
                     >
                       Male
                     </label>
@@ -170,7 +170,7 @@ export default function SignUp() {
                       ref={femaleGenderRef}
                     />
                     <label
-                      style={{ ...styles.radioLabel, fontFamily: "Karla" }}
+                      style={{ ...styles.radioLabel, fontFamily: "Karla", color: "#000" }}
                     >
                       Female
                     </label>
@@ -178,7 +178,7 @@ export default function SignUp() {
                 </div>
               </div>
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   Date of Birth:
                 </label>
                 {errors && errors.date_of_birth && (
@@ -193,7 +193,7 @@ export default function SignUp() {
                   <input
                     ref={dateOfBirthRef}
                     type="date"
-                    style={{ ...styles.input, fontFamily: "Karla" }}
+                    style={{ ...styles.input, fontFamily: "Karla",  color: "#000" }}
                   />
                 </div>
               </div>
@@ -209,7 +209,7 @@ export default function SignUp() {
             <div>
               {/* Fase Kedua */}
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   Username:
                 </label>
                 {errors && errors.username && (
@@ -229,7 +229,7 @@ export default function SignUp() {
                 </div>
               </div>
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>Email:</label>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>Email:</label>
                 {errors && errors.email && (
                   <p
                     className="text-red-600"
@@ -247,7 +247,7 @@ export default function SignUp() {
                 </div>
               </div>
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   Password (Min. 8 Characters):
                 </label>
                 {errors && errors.password && (
@@ -268,7 +268,7 @@ export default function SignUp() {
                 </div>
               </div>
               <div style={styles.inputGroup}>
-                <label style={{ ...styles.label, fontFamily: "Karla" }}>
+                <label style={{ ...styles.label, fontFamily: "Karla", color: "#000" }}>
                   Password Confirmation:
                 </label>
                 {errors && errors.password_confirmation && (
@@ -322,7 +322,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "120vh",
-    backgroundColor: "#957964",
+    backgroundColor: "#5E1219",
   },
   centeredText: {
     display: "flex",
@@ -330,7 +330,7 @@ const styles = {
     alignItems: "center",
   },
   signUpForm: {
-    backgroundColor: "#5E1219",
+    backgroundColor: "#957964",
     padding: "5%",
     borderRadius: "8px",
     width: "450px",
@@ -343,7 +343,7 @@ const styles = {
     fontFamily: "Lora, serif",
   },
   label: {
-    color: "#fff",
+    color: "#000000",
     fontFamily: "Karla, sans-serif",
   },
   nameGroup: {
@@ -355,6 +355,7 @@ const styles = {
     flex: 1,
     paddingRight: "10px",
     fontFamily: "Karla, sans-serif",
+    
   },
   inputGroup: {
     marginBottom: "10px",
@@ -364,18 +365,18 @@ const styles = {
     width: "100%",
     background: "transparent",
     border: "1px solid #fff",
-    borderRadius: "4px",
+    borderRadius: "10px",
     padding: "10px",
-    color: "#fff",
+    color: "000000",
   },
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
-    color: "#5E1219",
+    color: "#000000",
     width: "100%",
     borderRadius: "20px",
   },
   text: {
-    color: "#fff",
+    color: "#000000",
     fontFamily: "Karla, sans-serif",
   },
   radioGroup: {
@@ -388,7 +389,7 @@ const styles = {
     marginRight: "auto",
   },
   radioLabel: {
-    color: "#fff",
+    color: "#000000",
     fontFamily: "Karla, sans-serif",
   },
   orLine: {
@@ -397,10 +398,10 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #fff",
+    borderBottom: "1px solid #000000",
   },
   orText: {
-    color: "#fff",
+    color: "#000000",
     padding: "10px",
   },
   phaseIndicator: {
@@ -421,7 +422,7 @@ const styles = {
     cursor: "pointer",
     margin: "0 10px",
     // Tambahkan gaya lain yang Anda perlukan di sini.
-},
+  },
 
   // CSS saat fase aktif
   active: {

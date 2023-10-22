@@ -37,6 +37,7 @@ export default function AdminLogin() {
         }
       });
   }
+
   useEffect(() => {
     setIsVisible(true);
   }, []);  
@@ -71,7 +72,7 @@ export default function AdminLogin() {
                 ref={passwordRef}
                 type="password"
                 placeholder="Enter the Password"
-                style={{...styles.input, fontFamily: 'Karla'}}
+                style={{...styles.input, fontFamily: 'Karla', outline: 'none'}}
               />
             </div>
           </div>
@@ -96,22 +97,20 @@ export default function AdminLogin() {
   );
 }
 
-
-
 const styles = {
   pageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#957964",
+    backgroundColor: "#5E1219",
   },
   loginBox: {
     border: "none",
     padding: "1%",
     borderRadius: "8px",
     width: "400px",
-    backgroundColor: "#5E1219",
+    backgroundColor: "#957964",
     textAlign: "left",
     transition: "opacity 1s, transform 1s",
   },
@@ -119,7 +118,7 @@ const styles = {
     color: "#FBEC52",
   },
   label: {
-    color: "#fff",
+    color: "#000",
   },
   inputGroup: {
     marginBottom: "10px",
@@ -128,7 +127,7 @@ const styles = {
     width: "100%",
     background: "transparent",
     border: "1px solid #fff",
-    borderRadius: "4px",
+    borderRadius: "10px",
     padding: "10px",
     color: "#fff",
   },
@@ -144,11 +143,11 @@ const styles = {
     alignItems: "center",
   },
   text: {
-    color: "#fff",
+    color: "#000",
     marginTop: "10px",
   },
   link: {
-    color: "#fff",
+    color: "#000",
     transition: "color 0.3s",
   },
   hoverButton: {
@@ -163,13 +162,14 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #fff",
+    borderBottom: "1px solid #000",
   },
   orText: {
-    color: "#fff",
+    color: "#000",
     padding: "10px",
   },
 };
+
 
 const keyframes = {
   '@keyframes fadeInUp': {
