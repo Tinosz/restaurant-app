@@ -48,7 +48,7 @@ export default function Login() {
       <div
         style={{
           ...styles.loginBox,
-          animation: "fadeInUp 1s",
+          animation: "fadeInUp 1s", 
           opacity: isVisible ? 1 : 0,
         }}
       >
