@@ -63,7 +63,7 @@ export default function Login() {
               <input
                 ref={loginRef}
                 placeholder="Enter your Email/Username"
-                style={{...styles.input, fontFamily: 'Karla'}}
+                style={{...styles.input, fontFamily: 'Karla',}}
               />
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Login() {
                 ref={passwordRef}
                 type="password"
                 placeholder="Enter your Password"
-                style={{...styles.input, fontFamily: 'Karla', outline: 'none'}}
+                style={{...styles.input, fontFamily: 'Karla', outline: 'none', color:"white"}}
               />
             </div>
           </div>
@@ -119,9 +119,12 @@ const styles = {
   },
   title: {
     color: "#FBEC52",
+    fontWeight: "bold", // Membuat teks menjadi bold
+    fontSize: "30px",
   },
   label: {
-    color: "#000", // Mengganti warna label menjadi hitam
+    color: "#fff", // Mengganti warna label menjadi hitam
+    fontSize: "20px",
   },
   inputGroup: {
     marginBottom: "10px",
@@ -129,17 +132,23 @@ const styles = {
   input: {
     width: "100%",
     background: "transparent",
-    border: "1px solid #fff", // Mengganti warna border menjadi hitam
+    border: "1px solid #fff",
     borderRadius: "10px",
     padding: "10px",
-    color: "#000", // Mengganti warna tulisan input menjadi hitam
+    color: "#fff",
     outline: 'none',
+    '::placeholder': {
+      color: '#fff', // Mengganti warna teks placeholder menjadi putih
+    },
+    fontSize: "20px",
   },
+    
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
-    color: "#000", // Mengganti warna tombol menjadi hitam
+    color: "#fff", // Mengganti warna tombol menjadi hitam
     width: "100%",
     borderRadius: "20px",
+    fontSize: "20px",
   },
   orLine: {
     display: "flex",
@@ -147,10 +156,10 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #000", 
+    borderBottom: "1px solid #fff", 
   },
   orText: {
-    color: "#000",
+    color: "#fff",
     padding: "10px",
   },
   centeredText: {
@@ -159,11 +168,12 @@ const styles = {
     alignItems: "center",
   },
   text: {
-    color: "#000", // Mengganti warna teks menjadi hitam
+    color: "#fff", // Mengganti warna teks menjadi hitam
     marginTop: "10px",
+    fontsize:"20px",
   },
   link: {
-    color: "#000", // Mengganti warna tautan menjadi hitam
+    color: "#fff", // Mengganti warna tautan menjadi hitam
     transition: "color 0.3s",
   },
   hoverButton: {

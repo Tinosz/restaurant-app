@@ -116,9 +116,11 @@ const styles = {
   },
   title: {
     color: "#FBEC52",
+    fontSize: "30px",
   },
   label: {
-    color: "#000",
+    color: "#fff",
+    fontSize: "20px",
   },
   inputGroup: {
     marginBottom: "10px",
@@ -130,12 +132,14 @@ const styles = {
     borderRadius: "10px",
     padding: "10px",
     color: "#fff",
+    fontSize: "20px",
   },
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
-    color: "#000",
+    color: "#fff",
     width: "100%",
     borderRadius: "20px",
+    fontSize: "20px",
   },
   centeredText: {
     display: "flex",
@@ -143,11 +147,12 @@ const styles = {
     alignItems: "center",
   },
   text: {
-    color: "#000",
+    color: "#fff",
     marginTop: "10px",
+    fontSize: "20px",
   },
   link: {
-    color: "#000",
+    color: "#fff",
     transition: "color 0.3s",
   },
   hoverButton: {
@@ -162,10 +167,10 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #000",
+    borderBottom: "1px solid #fff",
   },
   orText: {
-    color: "#000",
+    color: "#fff",
     padding: "10px",
   },
 };

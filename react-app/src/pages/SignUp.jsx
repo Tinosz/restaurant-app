@@ -184,10 +184,12 @@ const styles = {
   title: {
     color: "#FBEC52",
     fontFamily: "Lora, serif",
+    fontSize: "30px",
   },
   label: {
-    color: "#000",
+    color: "#fff",
     fontFamily: "Karla, sans-serif",
+    fontSize: "20px",
   },
   nameGroup: {
     display: "flex",
@@ -208,18 +210,21 @@ const styles = {
     background: "transparent",
     border: "1px solid #fff",
     borderRadius: "4px",
-    padding: "10px",
-    color: "#000",
+    padding: "5px",
+    color: "#fff",
+    fontSize: "20px",
   },
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
-    color: "#000",
+    color: "#fff",
     width: "100%",
     borderRadius: "20px",
+    fontSize: "20px",
   },
   text: {
-    color: "#000",
+    color: "#fff",
     fontFamily: "Karla, sans-serif",
+    fontSize: "20px",
   },
   radioGroup: {
     display: "flex",
@@ -231,8 +236,9 @@ const styles = {
     marginRight: "auto",
   },
   radioLabel: {
-    color: "#000",
+    color: "#fff",
     fontFamily: "Karla, sans-serif",
+    fontSize: "20px",
   },
   orLine: {
     display: "flex",
@@ -240,10 +246,10 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #000",
+    borderBottom: "1px solid #fff",
   },
   orText: {
-    color: "#000",
+    color: "#fff",
     padding: "10px",
   },
 };
