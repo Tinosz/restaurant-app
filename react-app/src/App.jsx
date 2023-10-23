@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import { ContextProvider } from './context/ContextProvider'
 import { Router, RouterProvider } from 'react-router-dom'
 import router from './router'
 import NavigationBar from './components/NavigationBar'
 
-function App() {
-  const [count, setCount] = useState(0)
+import './styles.css'
 
+function App() {
   return (
-    <>
-      <NavigationBar />
-      <RouterProvider router={router} />
-    </>
+    <div className='App' id='app'>
+        <NavigationBar />
+        <RouterProvider router={router} />
+    </div>
   )
 }
 

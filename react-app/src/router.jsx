@@ -60,10 +60,10 @@ const router = createBrowserRouter([
                 path: '/Order',
                 element: <Order />
             },
-            {
-                path: '/OrderHistory',
-                element: <OrderHistory />
-            },
+            // {
+            //     path: '/OrderHistory',
+            //     element: <OrderHistory />
+            // },
             {
                 path: '/EditProfile',
                 element: <EditProfile />
