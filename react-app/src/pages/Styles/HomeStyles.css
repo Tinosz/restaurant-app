@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:wght@700&display=swap');
+
+
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 1px;
+}
+
+.home-background {
+    background-color: #5E1219;
+}
+
+.header-home {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.title-home {
+    color: #FBEC52;
+    font-size: 80px;
+    font-family: 'Lora', serif;
+    transform: translateZ(-.5px) scale(1.5);
+    text-shadow: 0 0 100px black;
+}
+
+.gambar-atas {
+    position: absolute;
+    height: 100%;
+    width: 100%;    
+    object-fit: cover;
+    z-index:-1;
+    transform: translateZ(-1px) scale(2);
+}
+
+.header-desc {
+    color: #FBEC52;
+    font-size: 50px;
+    font-family: 'Lora', serif;
+}
+
+.desc {
+    color: #FEFCFF;
+    font-size: 17px;
+    font-family: 'Karla', sans-serif;
+}
+
+.discover-journey {
+    width: 500px;
+    height: 75px;
+    background-color: #957964;
+    border: 2px solid #2A1C1C;
+    border-radius: 20px;
+    font-size: 25px;
+    margin-top: 70px;
+    font-family: 'Karla', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.discover-restaurant {
+    width: 500px;
+    height: 75px;
+    background-color: #957964;
+    border: 2px solid #2A1C1C;
+    border-radius: 20px;
+    font-size: 25px;
+    margin-top: 50px;
+    font-family: 'Karla', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color: #FEFCFF; /* Warna latar belakang saat tombol di-hover */
+}
+
+.our-journey {
+    display: flex;
+    flex-direction: row;
+}
+
+.foto-journey {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.foto-journey img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.desc-journey {
+    width: 1000px;
+    text-align: left;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.our-restaurant {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 50px;
+}
+
+.foto-restaurant {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+.foto-restaurant img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.desc-restaurant {
+    width: 1000px;
+    text-align: right;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.h1-gallery {
+    font-size: 30px;
+    color: #FBEC52;
+    text-align: center;
+    font-family: 'Lora', serif;
+    margin-bottom: 10px;
+}
+
+.our-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.our-gallery img {
+  max-width: 100%;
+  width: 20%;
+  height: 200px;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1115px) {
+    .title-home {
+        font-size: 40px;
+    }
+
+    .desc-journey,
+    .desc-restaurant {
+        width: 70%;
+    }
+
+    .header-home {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        transform-style: preserve-3d;
+        z-index: -1;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .our-gallery img {
+        width: 70%; 
+        height: 30%;
+        margin-bottom: 5px;
+    }
+
+    .header-desc {
+        color: #FBEC52;
+        font-size: 30px;
+        font-family: 'Lora', serif;
+    }
+
+    .desc {
+        color: #FEFCFF;
+        font-size: 15px;
+        font-family: 'Karla', sans-serif;
+    }
+
+    .our-journey {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .foto-journey {
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .foto-journey img {
+        max-width: 100%;
+        width: auto;
+    }
+
+    .desc-journey {
+        width: auto;
+        text-align: left;
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-right: 5px;
+    }
+
+    .our-restaurant {
+        display: flex;
+        flex-direction: column-reverse;
+        padding-bottom: 50px;
+    }
+
+    .foto-restaurant {
+        margin-top: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 100%;
+    }
+    .foto-restaurant img {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .desc-restaurant {
+        width: auto;
+        text-align: right;
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 10px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .discover-journey {
+        width: 200px;
+        height: 50px;
+        background-color: #957964;
+        border: 2px solid #2A1C1C;
+        border-radius: 20px;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-family: 'Karla', sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .discover-restaurant {
+        width: 200px;
+        height: 50px;
+        background-color: #957964;
+        border: 2px solid #2A1C1C;
+        border-radius: 20px;
+        font-size: 25px;
+        margin-top: 30px;
+        font-family: 'Karla', sans-serif;
+        cursor: pointer;
+        transition: background-color 0.5s;
+    }
+}
