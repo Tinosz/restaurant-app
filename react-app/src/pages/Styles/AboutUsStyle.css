@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:ital,wght@0,400;0,700;1,700&family=Young+Serif&display=swap');
+
+.Karla-font{
+    font-family: 'Karla', sans-serif;
+}
+
+.Lora-font{
+    font-family: 'Lora', serif;
+}
+
+.Young-serif-font{
+    font-family: 'Young Serif', serif;
+}
+
+.yellow-text-about{
+    color: #FBEC52;
+}

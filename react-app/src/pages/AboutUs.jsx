@@ -4,8 +4,10 @@ import rizqi from '../assets/img/rizqi.png'
 import Valentino from '../assets/img/Valentino.png'
 import Daniel from '../assets/img/Daniel .png'
 
+import './Styles/AboutUsStyle.css'
+
 export default function AboutUs() {
-  let message = 'This is a description of our Team'
+  let message = 'Kelompok 4'
 
   const DaftarNama =
     [
@@ -45,7 +47,7 @@ export default function AboutUs() {
         <div className="bg-custom-background">
 
           <div className="text-center  bg-custom-background ">
-            <h2 className="section-title text-custom-maize pt-5 bg-custom-background text-4xl font-lora">
+            <h2 className="section-title text-custom-maize pt-5 bg-custom-background text-4xl font-lora Young-serif-font yellow-text-about">
             Welcome to our Website
             </h2>
             <p className="text-white section-subtitle font-karla">{message}</p>

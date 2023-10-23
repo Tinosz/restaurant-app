@@ -11,9 +11,6 @@ export default function GuestLayout() {
     }
     return(
         <>
-        <h1>
-            You are in the Guest Section
-        </h1>
         <Outlet />
         </>
     )

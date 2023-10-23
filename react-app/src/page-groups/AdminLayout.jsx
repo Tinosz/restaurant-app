@@ -9,9 +9,6 @@ export default function AdminLayout() {
 
     return(
         <>
-        <h1>
-            This is the Admin Section
-        </h1>
         <Outlet />
         </>
     )
