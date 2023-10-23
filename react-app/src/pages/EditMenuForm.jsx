@@ -195,12 +195,12 @@ export default function EditMenuForm() {
                                 onChange={handleFoodCategoryChange}
                             >
                                 <option value="">Category</option>
-                                <option value="appetizer">Appetizer</option>
-                                <option value="fish">Fish</option>
-                                <option value="steak">Steak</option>
-                                <option value="soup">Soup</option>
-                                <option value="salad">Salad</option>
-                                <option value="dessert">Dessert</option>
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Steak">Steak</option>
+                                <option value="Soup">Soup</option>
+                                <option value="Salad">Salad</option>
+                                <option value="Dessert">Dessert</option>
                             </select>
                         )}
                         {food.food_type === "Drink" && (
@@ -210,11 +210,11 @@ export default function EditMenuForm() {
                                 onChange={handleFoodCategoryChange}
                             >
                                 <option value=" ">Category</option>
-                                <option value="tea">Tea</option>
-                                <option value="coffee">Coffee</option>
-                                <option value="juice">Juice</option>
-                                <option value="mocktail">Mocktail</option>
-                                <option value="alcohol">Alcohol</option>
+                                <option value="Tea">Tea</option>
+                                <option value="Coffee">Coffee</option>
+                                <option value="Juice">Juice</option>
+                                <option value="Mocktail">Mocktail</option>
+                                <option value="Alcohol">Alcohol</option>
                             </select>
                         )}
                     </div>
