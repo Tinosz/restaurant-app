@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from "react";
 import axiosClient from "../axios-client";
+import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
@@ -180,7 +180,7 @@ const styles = {
     width: "450px",
     marginTop: "",
     textAlign: "left",
-    transition: "opacity 1s, transform 1s",
+    transition: "opacity 1s, transform 2s",
   },
   title: {
     color: "#FBEC52",
@@ -260,10 +260,16 @@ const keyframes = {
     from: {
       opacity: 0,
       transform: 'translate3d(0, -20%, 0)',
+      '-webkit-transform': 'translate3d(0, -20%, 0)', 
+      '-moz-transform': 'translate3d(0, -20%, 0)',  
+      '-ms-transform': 'translate3d(0, -20%, 0)',    
     },
     to: {
       opacity: 1,
       transform: 'translate3d(0, 0, 0)',
+      '-webkit-transform': 'translate3d(0, 0, 0)',
+      '-moz-transform': 'translate3d(0, 0, 0)',
+      '-ms-transform': 'translate3d(0, 0, 0)',
     },
   },
 };

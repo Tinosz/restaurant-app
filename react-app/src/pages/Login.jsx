@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from "react";
 import { useStateContext } from "../context/ContextProvider";
 import axiosClient from "../axios-client";
+import { useRef, useState, useEffect } from "react";
 
 export default function Login() {
   const loginRef = useRef();
@@ -88,10 +88,10 @@ export default function Login() {
             <div style={styles.orCircle}></div>
           </div>
           <div style={styles.centeredText}>
-          <p style={{ ...styles.text, fontFamily: 'Karla' }}>
+          <p style={{ ...styles.text, fontFamily: 'Karla', fontSize: "20px", }}>
             Don't have an account? <a href="/SignUp" style={{ ...styles.link, ...styles.hoverLink, color:"#7a3320" }}>Sign Up here.</a>
           </p>
-          <p style={{ ...styles.text, fontFamily: 'Karla' }}>
+          <p style={{ ...styles.text, fontFamily: 'Karla', fontSize: "20px", }}>
             Are you an Admin? <a href="/AdminLogin" style={{ ...styles.link, ...styles.hoverLink, color:"#7a3320" }}>Log In here.</a>
           </p>
           </div>
@@ -190,10 +190,17 @@ const keyframes = {
     from: {
       opacity: 0,
       transform: 'translate3d(0, -20%, 0)',
+      '-webkit-transform': 'translate3d(0, -20%, 0)', // Prefix untuk Webkit (Chrome, Safari)
+      '-moz-transform': 'translate3d(0, -20%, 0)',    // Prefix untuk Mozilla (Firefox)
+      '-ms-transform': 'translate3d(0, -20%, 0)',     // Prefix untuk Microsoft (Internet Explorer/Edge)
     },
     to: {
       opacity: 1,
       transform: 'translate3d(0, 0, 0)',
+      '-webkit-transform': 'translate3d(0, 0, 0)',
+      '-moz-transform': 'translate3d(0, 0, 0)',
+      '-ms-transform': 'translate3d(0, 0, 0)',
     },
   },
 };
+

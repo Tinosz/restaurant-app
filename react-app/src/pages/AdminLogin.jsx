@@ -175,16 +175,21 @@ const styles = {
   },
 };
 
-
 const keyframes = {
   '@keyframes fadeInUp': {
     from: {
       opacity: 0,
       transform: 'translate3d(0, -20%, 0)',
+      '-webkit-transform': 'translate3d(0, -20%, 0)', 
+      '-moz-transform': 'translate3d(0, -20%, 0)',    
+      '-ms-transform': 'translate3d(0, -20%, 0)',    
     },
     to: {
       opacity: 1,
       transform: 'translate3d(0, 0, 0)',
+      '-webkit-transform': 'translate3d(0, 0, 0)',
+      '-moz-transform': 'translate3d(0, 0, 0)',
+      '-ms-transform': 'translate3d(0, 0, 0)',
     },
   },
 };
