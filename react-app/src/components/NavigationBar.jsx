@@ -50,7 +50,6 @@ export default function NavigationBar() {
         };
 
         const currentURL = window.location.pathname;
-
         const navClass = currentURL === "/Menu" || currentURL === "/" ? "absolute z-10 w-full" : "";
         
         useEffect(() => {

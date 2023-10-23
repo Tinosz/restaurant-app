@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:wght@700&display=swap');
+
+.bungkus {
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+border: 5px solid #FBEC52;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+color: #FEFCFF;
+background-color: #2A1C1C;
+margin-top: 100px;
+margin-bottom: 20px;
+font-family: 'Karla', sans-serif;
+}
+
+.form-label {
+font-weight: bold;
+}
+
+.form-input {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #2A1C1C;
+border-radius: 5px;
+font-size: 16px;
+}
+
+.form-input[type="file"] {
+padding: 5px;
+}
+
+.form-select {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border-radius: 5px;
+font-size: 16px;
+background-color: #2A1C1C;
+}
+
+.form-radio-label {
+display: block;
+font-weight: normal;
+margin-bottom: 5px;
+}
+
+.form-radio-input {
+margin-right: 5px;
+}
+
+label.textMF input {
+margin-right: 50px;
+}
+
+.input-form {
+margin-left: 7px; 
+}
+
+.form-button {
+background-color: black;
+color: black;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+font-size: 16px;
+}
+
+.text-red {
+color: #ff0000;
+font-size: 14px;
+margin-top: 5px;
+}
+
+.bungkus > form > div {
+margin-bottom: 15px;
+}
+
+.input-form {
+color: black;
+font-weight: bold;
+}
+
+
+button.textMF {
+background-color: #FBEC52; 
+color: black; 
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+cursor: pointer;
+font-weight: bold;
+transition: background-color 0.3s; 
+}
+
+button.textMF:hover {
+background-color: #957964;
+color: #FEFCFF;
+}
+
+.food-image {
+max-width: 100%;
+width: 60%;
+margin-top: 10px;
+}

@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import adminAxiosClient from "../axios-admin-client";
 import { useEffect, useState } from "react";
+import './Styles/MenuFormStyles.css';
 
 export default function EditMenuForm() {
     const { id } = useParams();
@@ -108,15 +109,16 @@ export default function EditMenuForm() {
     }
 
     return (
-        <div>
+        <div class="bungkus flex align-middle">
             <form onSubmit={onSubmit}>
                 <div>
-                    <label>Food Name:</label>
+                    <label class="textMF">Food Name:</label>
                     {errors && errors.food_name && (
                         <p className="text-red-600">{errors.food_name[0]}</p>
                     )}
                     <div>
-                        <input
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="input-form"
                             value={food.food_name}
                             onChange={(e) =>
                                 setFood({ ...food, food_name: e.target.value })
@@ -127,7 +129,7 @@ export default function EditMenuForm() {
                     </div>
                 </div>
                 <div>
-                    <label>Food Image (2MB Max.)</label>
+                    <label class="textMF">Food Image (2MB Max.)</label>
                     {errors && errors.food_image && (
                         <p className="text-red-600">{errors.food_image[0]}</p>
                     )}
@@ -140,24 +142,23 @@ export default function EditMenuForm() {
                         />
                     </div>
                     {food.imageUrl && (
-                        <div>
+                        <div className="food-image">
                             <img
                                 src={food.imageUrl}
                                 alt="Food Preview"
-                                style={{ maxWidth: "100px" }}
                             />
                         </div>
                     )}
                 </div>
                 <div>
-                    <label>Food Type</label>
+                    <label class="textMF">Food Type</label>
                     {errors && errors.food_type && (
                         <p className="text-red-600">{errors.food_type[0]}</p>
                     )}
                     <div>
-                        <label>
+                        <label class="textMF">
                             Food
-                            <input
+                            <input class="input-form"
                                 type="radio"
                                 name="food_type"
                                 value="Food"
@@ -165,9 +166,9 @@ export default function EditMenuForm() {
                                 onChange={handleFoodTypeChange}
                             />
                         </label>
-                        <label>
+                        <label class="textMF">
                             Drink
-                            <input
+                            <input class="input-form"
                                 type="radio"
                                 name="food_type"
                                 value="Drink"
@@ -175,57 +176,57 @@ export default function EditMenuForm() {
                                 onChange={handleFoodTypeChange}
                             />
                         </label>
+                        </div>
                     </div>
-                </div>
-                <div>
-                {errors && errors.food_category && (
-                        <p className="text-red-600">{errors.food_category[0]}</p>
-                    )}
-                    <label>Food Category</label>
                     <div>
-                        {food.food_type === "" && (
-                            <select disabled className="opacity-40 bg-slate-300">
-                                <option>Category</option>
-                            </select>
-                        )}
-                        {food.food_type === "Food" && (
-                            <select
-                                name="food_category"
-                                value={food.food_category}
-                                onChange={handleFoodCategoryChange}
-                            >
-                                <option value="">Category</option>
-                                <option value="Appetizer">Appetizer</option>
-                                <option value="Fish">Fish</option>
-                                <option value="Steak">Steak</option>
-                                <option value="Soup">Soup</option>
-                                <option value="Salad">Salad</option>
-                                <option value="Dessert">Dessert</option>
-                            </select>
-                        )}
-                        {food.food_type === "Drink" && (
-                            <select
-                                name="food_category"
-                                value={food.food_category}
-                                onChange={handleFoodCategoryChange}
-                            >
-                                <option value=" ">Category</option>
-                                <option value="Tea">Tea</option>
-                                <option value="Coffee">Coffee</option>
-                                <option value="Juice">Juice</option>
-                                <option value="Mocktail">Mocktail</option>
-                                <option value="Alcohol">Alcohol</option>
-                            </select>
-                        )}
-                    </div>
+                {errors && errors.food_category && (
+                <p className="text-red-600">{errors.food_category[0]}</p>
+                )}
+                <label className="textMF">Food Category</label>
+                <div className="input-form">
+                {food.food_type === "" && (
+                    <select disabled className="opacity-40 bg-slate-300">
+                    <option value=" ">All categories</option>
+                    </select>
+                )}
+                {food.food_type === "Food" && (
+                    <select
+                    name="food_category"
+                    value={food.food_category}
+                    onChange={handleFoodCategoryChange}
+                    >
+                    <option value="Category">Category</option>
+                    <option value="Appetizer">Appetizer</option>
+                    <option value="Fish">Fish</option>
+                    <option value="Steak">Steak</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Dessert">Dessert</option>
+                    </select>
+                )}
+                {food.food_type === "Drink" && (
+                    <select
+                    name="food_category"
+                    value={food.food_category}
+                    onChange={handleFoodCategoryChange}
+                    >
+                    <option value=" ">Category</option>
+                    <option value="tea">Tea</option>
+                    <option value="coffee">Coffee</option>
+                    <option value="juice">Juice</option>
+                    <option value="mocktail">Mocktail</option>
+                    <option value="alcohol">Alcohol</option>
+                    </select>
+                )}
+                </div>
                 </div>
                 <div>
-                    <label>Cost</label>
+                    <label class="textMF">Cost</label>
                     {errors && errors.cost && (
                         <p className="text-red-600">{errors.cost[0]}</p>
                     )}
-                    <div>
-                        <input
+                    <div class="input-form">
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={food.cost}
                             onChange={(e) =>
                                 setFood({ ...food, cost: e.target.value })
@@ -236,12 +237,12 @@ export default function EditMenuForm() {
                     </div>
                 </div>
                 <div>
-                    <label>Food Description: (Max. 280 Characters)</label>
+                    <label class="textMF">Food Description: (Max. 280 Characters)</label>
                     {errors && errors.description && (
                         <p className="text-red-600">{errors.description[0]}</p>
                     )}
-                    <div>
-                        <textarea
+                    <div class="input-form">
+                        <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             maxLength="280"
                             value={food.description}
                             onChange={(e) =>
@@ -254,7 +255,7 @@ export default function EditMenuForm() {
                         />
                     </div>
                 </div>
-                <button>{id ? "Edit" : "Add"}</button>
+                <button class="textMF">{id ? "Edit" : "Add"}</button>
             </form>
         </div>
     );

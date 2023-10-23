@@ -81,7 +81,7 @@ export default function AdminLogin() {
               />
             </div>
           </div>
-          <button style={{...styles.button, fontFamily: 'Karla'}}>Sign In</button>
+          <button style={{...styles.button}}>Sign In</button>
 
           <div style={styles.orLine}>
             <div style={styles.orCircle}></div>
@@ -143,7 +143,7 @@ const styles = {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
     border: "2px solid #2a1c1c",
     padding: "3px",
-    color: "#fff",
+    color: "#2a1c1c",
     width: "100%",
     borderRadius: "20px",
     fontSize: "20px",
