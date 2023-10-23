@@ -48,8 +48,8 @@ export default function Login() {
       <div
         style={{
           ...styles.loginBox,
-          animation: "fadeInUp 1s",
-          opacity: isVisible ? 1 : 0
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
         }}
       >
         <h1 style={{ ...styles.title, fontFamily: 'Lora' }}>Sign in to your account</h1><br></br>
@@ -116,6 +116,7 @@ const styles = {
     width: "400px",
     backgroundColor: "#957964",
     textAlign: "left",
+    transition: "opacity 1s, transform 1s",
   },
   title: {
     color: "#FBEC52",

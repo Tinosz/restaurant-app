@@ -58,7 +58,8 @@ export default function SignUp() {
   return (
     <div style={styles.pageContainer}>
       <div style={{ ...styles.centeredText, fontFamily: 'Karla' }}>
-        <form style={{ ...styles.signUpForm, animation: 'fadeInUp 1s' }} onSubmit={onSubmit}>
+        <form style={{ ...styles.signUpForm, opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)', }} onSubmit={onSubmit}>
           <h1 style={{ ...styles.title, fontFamily: 'Lora' }}>Create your Account!</h1><br></br>
           <div style={styles.inputGroup}>
             <label style={{ ...styles.label, fontFamily: 'Karla' }}>Username:</label>
