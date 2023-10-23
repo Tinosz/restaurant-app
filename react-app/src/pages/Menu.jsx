@@ -10,19 +10,18 @@ import './Styles/MenuStyles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function Menu() {
     const { adminToken, token } = useStateContext();
     const [foods, setFoods] = useState([]);
     const navigate = useNavigate();
     const [openItems, setOpenItems] = useState({});
     const [clickedItems, setClickedItems] = useState({});
-    
 
     //functions
     useEffect(() => {
         getFoods();
     }, []);
+
 
     const onDelete = (food) => {
         if (
@@ -172,7 +171,7 @@ export default function Menu() {
                                                         <div>
                                                             <h3 className="header-color header2-menu-font text-3xl">{category}</h3>
                                                             {items.map((food) => (
-                                                                <div onClick={() => toggleDetails(food)} className="cursor-pointer hoverable-menu">
+                                                                <div onClick={() => toggleDetails(food)} className="cursor-pointer hoverable-menu" data-aos="fade-right">
                                                                     <div  key={food.id}
                                                                         onClick={() => handleClick(food)}
                                                                         className={`hoverable-menu ${clickedItems[food.id] ? 'clicked' : ''}`}>

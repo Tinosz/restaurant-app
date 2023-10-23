@@ -3,13 +3,14 @@ import router from './router'
 import NavigationBar from './components/NavigationBar'
 import './styles.css'
 
-function App() {
 
+
+function App() {
   return (
-    <>
+    <div className='App' id='app'>
         <NavigationBar />
         <RouterProvider router={router} />
-    </>
+    </div>
   )
 }
 
