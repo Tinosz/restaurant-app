@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Lora:ital,wght@0,400;0,700;1,700&family=Young+Serif&display=swap');
+
+
+.outer-box-order{
+    background-color: #FEFCFF;
+}
+
+.order-button {
+    border: #5E1219;
+    background-color: #5E1219;
+    color: #FEFCFF;
+    transition: background-color 0.3s, opacity 0.1s;
+}
+
+.order-button:hover {
+    background-color: rgba(94, 18, 25, 0.5); 
+}
+
+.back-to-order-button{
+    border: 1px solid #5E1219;
+    transition: background-color 0.3s, opacity 0.1s;
+}
+
+.back-to-order-button:hover {
+    background-color: rgba(94, 18, 25, 0.5); 
+}
+
+.order-text-bold{
+    font-family: 'Young Serif', serif;
+}
+
+.order-text{
+    font-family: 'Karla', sans-serif;
+}
