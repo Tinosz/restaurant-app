@@ -2,6 +2,8 @@ import adminAxiosClient from "../axios-admin-client";
 import { useRef, useState, useEffect } from "react";
 import { useStateContext } from "../context/ContextProvider";
 
+import './Styles/MenuStyles.css';
+
 export default function AdminLogin() {
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -50,18 +52,21 @@ export default function AdminLogin() {
           transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
         }}
       >
-        <h1 style={{...styles.title, fontFamily: 'Lora'}}>Sign in to the Admin Account</h1><br></br>
+        <h1 className="Young-serif-font" style={{...styles.title}}>Sign in to the Admin Account</h1><br></br>
         <form onSubmit={onSubmit}>
           <div style={styles.inputGroup}>
-            <label style={{...styles.label, fontFamily: 'Karla'}}>Admin Username:</label>
+            <label className="Karla-font" style={{...styles.label}}>Admin Username:</label>
             {errors && errors.username && (
-              <p className="text-red-600" style={{fontFamily: 'Karla'}}>{errors.username[0]}</p>
+              <div className="bg-red-300 rounded-xl p-2 my-2 border-red-600">
+                <p className="text-red-600" style={{fontFamily: 'Karla'}}>{errors.username[0]}</p>
+              </div>
             )}
             <div>
               <input
                 ref={usernameRef}
                 placeholder="Enter the Admin Username"
-                style={{...styles.input, fontFamily: 'Karla'}}
+                style={{...styles.input}}
+                className="Lora-font"
               />
             </div>
           </div>
@@ -84,9 +89,9 @@ export default function AdminLogin() {
             <div style={styles.orCircle}></div>
           </div>
           <div style={styles.centeredText}>
-            <p style={{...styles.text, fontFamily: 'Karla'}}>
+            <p className="Karla-font" style={{...styles.text}}>
               Are you a User?{" "}
-              <a style={{...styles.link, fontFamily: 'Karla', color:"#7a3320"}} href="/Login">
+              <a className="Young-serif-font" style={{...styles.link, color:"#7a3320"}} href="/Login">
                 Log In here.
               </a>
             </p>
@@ -110,16 +115,17 @@ const styles = {
     padding: "1%",
     borderRadius: "8px",
     width: "400px",
-    backgroundColor: "#957964",
+    backgroundColor: "#fefcff",
     textAlign: "left",
     transition: "opacity 1s, transform 1s",
   },
   title: {
-    color: "#FBEC52",
+    color: "#2a1c1c",
+    fontWeight: "bold",
     fontSize: "30px",
   },
   label: {
-    color: "#fff",
+    color: "#2a1c1c",
     fontSize: "20px",
   },
   inputGroup: {
@@ -127,15 +133,16 @@ const styles = {
   },
   input: {
     width: "100%",
-    background: "transparent",
-    border: "1px solid #fff",
+    border: "2px solid #2a1c1c",
     borderRadius: "10px",
     padding: "10px",
-    color: "#fff",
+    color: "#2a1c1c",
     fontSize: "20px",
   },
   button: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",
+    border: "2px solid #2a1c1c",
+    padding: "3px",
     color: "#fff",
     width: "100%",
     borderRadius: "20px",
@@ -147,7 +154,7 @@ const styles = {
     alignItems: "center",
   },
   text: {
-    color: "#fff",
+    color: "#2a1c1c",
     marginTop: "10px",
     fontSize: "20px",
   },
@@ -167,10 +174,10 @@ const styles = {
   },
   orCircle: {
     flex: "1",
-    borderBottom: "1px solid #fff",
+    borderBottom: "1px solid #2a1c1c",
   },
   orText: {
-    color: "#fff",
+    color: "#2a1c1c",
     padding: "10px",
   },
 };
