@@ -12,9 +12,6 @@ export default function UserLayout() {
     
     return(
         <>
-        <h1>
-            This is the User Section
-        </h1>
         <Outlet />
         </>
     )

@@ -4,8 +4,9 @@ import axiosClient from "../axios-client";
 import adminAxiosClient from "../axios-admin-client";
 import "./styles/NavigationBar.css";
 import logo from "./styles/images/elegante-logo.png";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation } from "react-router-dom";
 
 export default function NavigationBar() {
         const { user, token, adminToken, setUser, setToken, setAdminToken } =
@@ -20,6 +21,13 @@ export default function NavigationBar() {
 
         const toggleMobileMenu = () => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
+        };
+
+        const handleMobileMenuToggle = (e) => {
+
+            e.preventDefault();
+
+            toggleMobileMenu();
         };
 
         const Logout = (e) => {
@@ -41,6 +49,10 @@ export default function NavigationBar() {
             }
         };
 
+        const currentURL = window.location.pathname;
+
+        const navClass = currentURL === "/Menu" || currentURL === "/" ? "absolute z-10 w-full" : "";
+        
         useEffect(() => {
             if (token) {
                 axiosClient.get("/user").then(({ data }) => {
@@ -53,8 +65,9 @@ export default function NavigationBar() {
             }
         }, []);
 
+        
     return (
-    <nav className="navigation-bar-color p-4 h-20">
+    <nav className={`navigation-bar-color p-4 h-20 ${navClass}`}>
         <div className="nav-desktop">
             <div className="flex justify-between mx-auto h-full container"> 
                 <div className="ml-0 my-auto"> 
@@ -110,32 +123,37 @@ export default function NavigationBar() {
                         <div
                             className="my-auto"
                             onClick={toggleMobileMenu}
+                            onTouchStart={handleMobileMenuToggle}
                         >
-                            <FontAwesomeIcon icon={faBars} className="text-4xl my-auto mobile-nav" />
+                            {isMobileMenuOpen ? (
+                                <FontAwesomeIcon icon={faX} className="text-4xl my-auto mobile-nav" />
+                            ) : (
+                                <FontAwesomeIcon icon={faBars} className="text-4xl my-auto mobile-nav" />
+                            )}
                         </div>
                     </div>
                 </div>
                 {isMobileMenuOpen && (
-                    <div className="mobile-menu-wrapper">
-                        <div className="dropdown-menu-navbar">
-                            <a href="/menu">Menu</a>
-                            <a href="/AboutUs">About Us</a>
-                            {token && (
-                                <a href="/Order">Your Orders</a>
-                            )}
-                            {token || adminToken ? (
-                                <a href="/" onClick={Logout}>
-                                    Log Out
-                                </a>
-                            ) : (
-                                <a href="/Login">Log In</a>
-                            )}
+                    <div className={`mobile-menu-wrapper ${isMobileMenuOpen ? 'mobile-menu-wrapper-open' : ''}`}>
+                    <div className="dropdown-menu-navbar">
+                        <a href="/menu" className="navigation-bar-text-color-main mb-10 text-5xl">Menu</a>
+                        {token && (
+                            <a href="/Order" className="navigation-bar-text-color-main mb-10 text-5xl">Your Orders</a>
+                        )}
+                        <a href="/AboutUs" className="navigation-bar-text-color-main mb-10 text-5xl">About Us</a>
+                        {token || adminToken ? (
+                            <a href="/" onClick={Logout} className="navigation-bar-text-color-main mb-10 text-5xl">
+                            Log Out
+                            </a>
+                        ) : (
+                            <a href="/Login" className="navigation-bar-text-color-main mb-10 text-5xl">Log In</a>
+                        )}
                         </div>
                         <div
-                            className="mobile-menu-backdrop"
-                            onClick={toggleMobileMenu}
+                        className={`mobile-menu-backdrop ${isMobileMenuOpen ? 'mobile-menu-backdrop-open' : ''}`}
+                        onClick={toggleMobileMenu}
                         ></div>
-                    </div>
+                    </div> 
                 )}
             </div>
     </nav>

@@ -34,57 +34,8 @@
 }
 
 .menu-header-text{
-    transform: translateZ(-.5px) scale(1.5) translate(0%, -200%);
+    transform: translateZ(-.5px) scale(1.5) translate(0%, -160%);
 }
-
-
-/* .menu-wrapper {
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    perspective: 1px;
-}
-
-.menu-header {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    transform-style: preserve-3d;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.background-menu,
-.background-menu-glass {
-    position: absolute;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-
-.background-menu{
-    z-index: -1;
-}
-
-.background-menu-filter::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(94, 18, 25, 0.5);
-    z-index: -1; 
-}
-
-.background-menu {
-    transform: translateZ(-1px) scale(2);
-}
-
-.menu-header-text {
-    transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-5%, 25%);
-} */
-
 .menu-normal {
     background-color: #5E1219;
 }

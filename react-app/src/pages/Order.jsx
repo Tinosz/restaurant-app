@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import userAxiosClient from "../axios-user-client";
+import "./Styles/OrderStyles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Order() {
     const [foods, setFoods] = useState([]);
-    const navigate = useNavigate();
     const [totalCost, setTotalCost] = useState(0);
 
     useEffect(() => {
@@ -29,9 +30,6 @@ export default function Order() {
     const orderProcess = (e) => {
         e.preventDefault();
 
-        //process order to database if you want;
-
-        //go somewhere after order
         window.location.href = "/";
         localStorage.removeItem("order");
     };
@@ -91,48 +89,74 @@ export default function Order() {
         const costString = parsedCost.toLocaleString("id-ID");
         return `Rp. ${costString}`;
     };
-    //Orders can only be seen when Foods are added from the menu
-    //if not, the text saying that there is no order
+
     return (
-        <div>
-            {localStorage.getItem("order") &&
-            Object.keys(JSON.parse(localStorage.getItem("order"))).length >
-                0 ? (
-                <div>
-                    {foods
-                        .filter((food) => {
-                            const orderId = JSON.parse(
-                                localStorage.getItem("order")
-                            );
-                            return orderId && orderId[food.id] > 0;
-                        })
-                        .map((food) => (
-                            <div key={food.id}>
-                                <p>{food.food_name}</p>
-                                <p>{formattedCost(food.cost)}</p>
-                                <button onClick={() => removeFromPlate(food)}>
-                                    -
-                                </button>
-                                <span>
-                                    {
-                                        JSON.parse(
-                                            localStorage.getItem("order")
-                                        )[food.id]
-                                    }
-                                </span>
-                                <button onClick={() => addToPlate(food)}>
-                                    +
-                                </button>
+        <div className="flex justify-center">
+            <div className="container lg:mx-auto md:mx-auto relative my-20">
+                <div className="outer-box-order rounded-lg p-10 lg:w-1/2 lg:mx-auto md:w-3/4 md:mx-auto">
+                    <div className="mx-auto">
+                    <a href="/Menu" className="back-to-order-button rounded-full p-2">
+                            Back to Ordering
+                        </a>
+                        {localStorage.getItem("order") &&
+                        Object.keys(JSON.parse(localStorage.getItem("order"))).length >
+                            0 ? (
+                            <div>
+                                <table className="table-fixed w-11/12 mx-auto mt-4">
+                                    <tbody>
+                                    {foods
+                                        .filter((food) => {
+                                            const orderId = JSON.parse(
+                                                localStorage.getItem("order")
+                                            );
+                                            return orderId && orderId[food.id] > 0;
+                                        })
+                                        .map((food) => (
+                                            <tr key={food.id} className="border-b p-3">
+                                                    <td>
+                                                        <img className="w-32 h-20 object-cover rounded" src={`${import.meta.env.VITE_API_BASE_URL}/storage/${food.food_image}`} />
+                                                    </td>
+                                                    <td>
+                                                        <p className="ml-3 order-text-bold">{food.food_name}</p>
+                                                    </td>
+                                                    <td className="text-end">    
+                                                        <button onClick={() => removeFromPlate(food)}>
+                                                            <FontAwesomeIcon icon={faCircleMinus} />
+                                                        </button>
+                                                        <span className="mx-3">
+                                                            {
+                                                                JSON.parse(
+                                                                    localStorage.getItem("order")
+                                                                )[food.id]
+                                                            }
+                                                        </span>
+                                                        <button onClick={() => addToPlate(food)}>
+                                                            <FontAwesomeIcon icon={faCirclePlus} />
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <p className="ml-4">{formattedCost(food.cost)}</p>
+                                                    </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                                <div className="flex justify-end lg:mr-24 md:mr-10 mt-5">
+                                    <p className="order-text text-2xl">Total Cost:</p>
+                                    <p className="ml-10 order-text text-2xl">{formattedCost(totalCost)}</p>
+                                </div>
+                                <div className="flex justify-end lg:mr-20 md:mr-10 mt-5">
+                                    <a href="/" onClick={orderProcess} className="order-button rounded-full p-2 order-text">
+                                        Order Now
+                                    </a>
+                                </div>
                             </div>
-                        ))}
-                    <p>Total Cost: {formattedCost(totalCost)}</p>
-                    <a href="/" onClick={orderProcess}>
-                        Order Now
-                    </a>
+                        ) : (
+                            <p className="order-text-bold text-3xl mt-10 text-center">Currently, there is no order.</p>
+                        )}
+                    </div>
                 </div>
-            ) : (
-                <p>Currently, there is no order.</p>
-            )}
+            </div>
         </div>
     );
 }
