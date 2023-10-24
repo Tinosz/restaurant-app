@@ -190,7 +190,7 @@ const styles = {
     backgroundColor: "#fefcff",
     padding: "5%",
     borderRadius: "8px",
-    width: "450px",
+    width: "100%",
     marginTop: "",
     textAlign: "left",
     transition: "opacity 1s, transform 2s",
@@ -236,6 +236,7 @@ const styles = {
     color: "#2a1c1c",
     fontFamily: "Karla, sans-serif",
     fontSize: "20px",
+    textAlign: "center",
   },
   radioGroup: {
     display: "flex",

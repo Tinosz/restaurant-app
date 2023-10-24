@@ -152,12 +152,12 @@ export default function Menu() {
         </header>
             <div className="menu-normal w-full absolute section2-menu">
                 <div className="container mx-auto relative">
-                    <img src={border} className="rotate-180 -scale-x-100 absolute xl:w-2/12 md:w-1/6 w-1/3 -top-20 z-10"/>
+                    <img src={border} className="rotate-180 -scale-x-100 absolute xl:w-2/12 md:w-1/6 w-1/3 -top-20 border-menu"/>
                     <div className="mx-auto 2xl:w-2/5 lg:w-2/5 md:w-1/2 w-3/4 mt-20">
                     {adminToken && (
-                            <p className="">
-                                <a href="/EditMenuForm" className="description-menu-font text-base menu-button p-2 rounded-full">Add Menu Item</a>
-                            </p>
+                            <>
+                                <a href="/EditMenuForm" className="description-menu-font text-base menu-button p-2 rounded-full z-10 relative">Add Menu Item</a>
+                            </>
                         )}                    
                         <div>
                             {Object.entries(organizedFoods).map(([foodType, categories]) => (
@@ -184,7 +184,7 @@ export default function Menu() {
                                                                                 </div>
                                                                                 <div onClick={(e) => {
                                                                                     e.stopPropagation();
-                                                                                }}>
+                                                                                }} className="h-1">
                                                                                     <div className="flex items-center">
                                                                                         {adminToken ? (
                                                                                             <div className="w-32">

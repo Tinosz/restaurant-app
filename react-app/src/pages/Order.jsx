@@ -93,7 +93,7 @@ export default function Order() {
     return (
         <div className="flex justify-center">
             <div className="container lg:mx-auto md:mx-auto relative my-20">
-                <div className="outer-box-order rounded-lg p-10 lg:w-1/2 lg:mx-auto md:w-3/4 md:mx-auto">
+                <div className="outer-box-order rounded-lg px-1 py-5 lg:p-10 md:p-5 lg:w-1/2 lg:mx-auto md:w-3/4 md:mx-auto">
                     <div className="mx-auto">
                     <a href="/Menu" className="back-to-order-button rounded-full p-2">
                             Back to Ordering

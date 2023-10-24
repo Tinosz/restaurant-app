@@ -31,6 +31,14 @@ font-size: 16px;
 padding: 5px;
 }
 
+.button-upper{
+    z-index: 20;
+}
+
+.border-menu img{
+    z-index: 1;
+}
+
 .form-select {
 width: 100%;
 padding: 10px;

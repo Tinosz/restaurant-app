@@ -11,3 +11,14 @@
 .Young-serif-font{
     font-family: 'Young Serif', serif;
 }
+
+@media (max-width: 768px) {
+    .login-image{
+        display: none;
+    }
+
+    .login-box{
+        border-bottom-left-radius: 0.75rem;
+        border-top-left-radius: 0.75rem;
+    }
+}

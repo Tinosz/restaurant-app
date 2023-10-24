@@ -17,18 +17,16 @@ export default function NavigationBar() {
             ? user.username
             : "Visitor";
 
-        const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+            const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        const toggleMobileMenu = () => {
-            setIsMobileMenuOpen(!isMobileMenuOpen);
-        };
-
-        const handleMobileMenuToggle = (e) => {
-
-            e.preventDefault();
-
-            toggleMobileMenu();
-        };
+            const toggleMobileMenu = () => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+            };
+        
+            const handleMobileMenuToggle = (e) => {
+                e.preventDefault();
+                toggleMobileMenu();
+            };
 
         const Logout = (e) => {
             e.preventDefault();
@@ -51,7 +49,7 @@ export default function NavigationBar() {
 
         const currentURL = window.location.pathname;
         const navClass = currentURL === "/Menu" || currentURL === "/" ? "absolute z-10 w-full" : "";
-        
+
         useEffect(() => {
             if (token) {
                 axiosClient.get("/user").then(({ data }) => {
@@ -119,17 +117,13 @@ export default function NavigationBar() {
                         <div className="navigation-bar-text-color-submain my-auto mr-4">
                             Hello {username}!
                         </div>
-                        <div
-                            className="my-auto"
-                            onClick={toggleMobileMenu}
-                            onTouchStart={handleMobileMenuToggle}
-                        >
-                            {isMobileMenuOpen ? (
-                                <FontAwesomeIcon icon={faX} className="text-4xl my-auto mobile-nav" />
-                            ) : (
-                                <FontAwesomeIcon icon={faBars} className="text-4xl my-auto mobile-nav" />
-                            )}
-                        </div>
+                        <div className="my-auto" onClick={handleMobileMenuToggle}>
+            {isMobileMenuOpen ? (
+                <FontAwesomeIcon icon={faX} className="text-4xl my-auto mobile-nav" />
+            ) : (
+                <FontAwesomeIcon icon={faBars} className="text-4xl my-auto mobile-nav" />
+            )}
+        </div>
                     </div>
                 </div>
                 {isMobileMenuOpen && (

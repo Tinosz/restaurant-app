@@ -63,14 +63,14 @@ export default function Login() {
     <div style={styles.pageContainer}>
       <div className="flex justify-center align-middle" style={{...styles.WholeLoginBox, opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',}}>
-      <img className="w-2/12 h-auto object-cover rounded-tl-xl rounded-bl-xl" src={diningPhoto} />
+      <img className="w-2/12 h-auto object-cover rounded-tl-xl rounded-bl-xl login-image" src={diningPhoto} />
       <div
         style={{
           ...styles.loginBox,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -20%, 0)',
         }}
-        className="rounded-tr-xl rounded-br-xl"
+        className="rounded-tr-xl rounded-br-xl login-box"
       >
         <h1 className="Young-serif-font" style={{ ...styles.title}}>Sign in to your account</h1><br></br>
         <form onSubmit={onSubmit}>
@@ -112,7 +112,7 @@ export default function Login() {
           </div>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <ReCAPTCHA
-              sitekey="6Le_ycIoAAAAAA0Xzu13S7CWTANdjwlAtDgxFiV3"
+              sitekey="6LckxsQoAAAAAOwHIOxSmrMOuT76ZYQiMf7q6lb3"
               onChange={(value) => setRecaptchaValue(value)}
             />
           </div>
@@ -151,7 +151,6 @@ const styles = {
   loginBox: {
     border: "none",
     padding: "1%",
-    width: "30rem",
     backgroundColor: "#fefcff",
     textAlign: "left",
     transition: "opacity 1s, transform 1s",
@@ -209,6 +208,7 @@ const styles = {
     alignItems: "center",
   },
   text: {
+    textAlign: 'center',
     color: "#2a1c1c", 
     marginTop: "10px",
     fontsize:"20px",
