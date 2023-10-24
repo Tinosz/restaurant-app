@@ -20,7 +20,7 @@ export default function AboutUs() {
       },
       {
         "No": 2,
-        "nama": "Winassyabani",
+        "nama": "Muhammad Rizqi Ws",
         "nim": "00000073547",
         "image": rizqi,
         "des": "kami adalah Mahasiwa UMN angkatan 2022 dengan jurusan Teknik Informatika"
