@@ -47,8 +47,11 @@ export default function NavigationBar() {
             }
         };
 
-        const currentURL = window.location.pathname;
-        const navClass = currentURL === "/Menu" || currentURL === "/" ? "absolute z-10 w-full" : "";
+        const location = useLocation();
+
+        const getNavClass = () => {
+            return location.pathname === "/Menu" || location.pathname === "/" ? "absolute z-10 w-full" : "";
+        };
 
         useEffect(() => {
             if (token) {
@@ -64,7 +67,7 @@ export default function NavigationBar() {
 
         
     return (
-    <nav className={`navigation-bar-color p-4 h-20 ${navClass}`}>
+    <nav className={`navigation-bar-color p-4 h-20 mt-0 ${getNavClass()}`}>
         <div className="nav-desktop">
             <div className="flex justify-between mx-auto h-full container"> 
                 <div className="ml-0 my-auto"> 

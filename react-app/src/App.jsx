@@ -7,7 +7,6 @@ import './styles.css'
 function App() {
   return (
     <div className='App' id='app'>
-        <NavigationBar />
         <RouterProvider router={router} />
     </div>
   )

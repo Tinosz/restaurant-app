@@ -16,6 +16,7 @@ export default function Menu() {
     const navigate = useNavigate();
     const [openItems, setOpenItems] = useState({});
     const [clickedItems, setClickedItems] = useState({});
+    
 
     //functions
     useEffect(() => {
@@ -199,7 +200,7 @@ export default function Menu() {
                                                                                                 </button>
                                                                                             </div>
                                                                                         ) : (
-                                                                                            <div>
+                                                                                            <div className="mt-3">
                                                                                                 {localStorage.getItem("order") &&
                                                                                                 JSON.parse(localStorage.getItem("order"))[food.id] ? (
                                                                                                     <div className="h-10 w-20 mx-auto">
